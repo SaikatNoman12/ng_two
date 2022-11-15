@@ -10,12 +10,16 @@ import { ContactsComponent } from './contacts/contacts.component';
 import { ProductsComponent } from './products/products.component';
 import { HomeComponent } from './home/home.component';
 import { FormComponent } from './form/form.component';
+import { ErrorComponent } from './error/error.component';
 
 const appRoute: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'login', component: FormComponent },
   { path: 'about', component: AboutComponent },
   { path: 'products', component: ProductsComponent },
   { path: 'contacts', component: ContactsComponent },
+  { path: '**', component: ErrorComponent },
 ];
 
 @NgModule({
@@ -26,7 +30,8 @@ const appRoute: Routes = [
     ContactsComponent,
     ProductsComponent,
     HomeComponent,
-    FormComponent
+    FormComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
