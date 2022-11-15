@@ -1,19 +1,20 @@
-<div class="container">
+<div class="container p-0">
     <header>
         <nav>
-            <ul class="nav nav-tabs p-3">
+            <ul class="nav nav-tabs p-3 bg-secondary bg-opacity-50">
                 <li class="nav-item">
-                    <a href="" class="nav-link active" routerLink="./">Home</a>
+                    <a href="" class="nav-link" routerLink="./" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{exact:true}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" routerLink="./about">About Us</a>
+                    <a href="" class="nav-link" routerLink="./about" routerLinkActive="active">About Us</a>
 
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" routerLink="./products">Products</a>
+                    <a href="" class="nav-link" routerLink="./products" routerLinkActive="active">Products</a>
                 </li>
                 <li class="nav-item">
-                    <a href="" class="nav-link" routerLink="./contacts">Contacts</a>
+                    <a href="" class="nav-link" routerLink="./contacts" routerLinkActive="active">Contacts</a>
                 </li>
             </ul>
         </nav>
