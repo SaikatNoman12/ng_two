@@ -12,15 +12,6 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-  // 
-
-  // 
-
-  // https://media.4rgos.it/i/Argos/0821-m0014-m007-m050-asym-m008-m022-washing-machine-as270753549?maxW=768&qlt=75&fmt.jpeg.interlaced=true
-
-  // 
-
   allData:any[] = [
     {
       name:'Bird',
