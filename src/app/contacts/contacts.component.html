@@ -1,10 +1,73 @@
 <div class="container text-center bg-danger p-5">
-    <h1>CONTACTS</h1>
-    <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores fugit sapiente incidunt? Cumque, dolore. Harum delectus autem nihil eius aliquid praesentium, dolore magni. Fugit animi quae, cupiditate impedit nisi dolorem, voluptatibus tempore iste laboriosam facere excepturi unde ea temporibus ut expedita quas consequatur totam. Nihil ex modi illo, tempora qui perferendis? Quod debitis illum quasi aut reprehenderit neque earum illo incidunt odio exercitationem esse tempora veniam fugiat inventore voluptatem porro architecto doloremque dolores ullam, consequatur quae ad sint rerum temporibus. Nulla, illum asperiores nostrum consequatur ex necessitatibus quia. Enim eligendi nobis quam illo sed consequatur maxime, quia aliquam incidunt voluptas?
-    </p>
-    <br>
-    <br>
+  <h1>CONTACTS</h1>
+  <p>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores fugit
+    sapiente incidunt? Cumque, dolore. Harum delectus autem nihil eius aliquid
+    praesentium, dolore magni. Fugit animi quae, cupiditate impedit nisi
+    dolorem, voluptatibus tempore iste laboriosam facere excepturi unde ea
+    temporibus ut expedita quas consequatur totam. Nihil ex modi illo, tempora
+    qui perferendis? Quod debitis illum quasi aut reprehenderit neque earum illo
+    incidunt odio exercitationem esse tempora veniam fugiat inventore voluptatem
+    porro architecto doloremque dolores ullam, consequatur quae ad sint rerum
+    temporibus. Nulla, illum asperiores nostrum consequatur ex necessitatibus
+    quia. Enim eligendi nobis quam illo sed consequatur maxime, quia aliquam
+    incidunt voluptas?
+  </p>
+  <br />
+  <br />
 
-    <app-ngfor></app-ngfor>
+  <app-ngfor></app-ngfor>
+
+  <div class="w-100">
+    <div class="row g-4">
+      <div class="col-md-6">
+        <app-ngcontent>
+          <h3 class="text-primary main-title">Laptop</h3>
+          <button
+            class="btn btn-success px-5 py-1 suc-btn"
+            [style]="'font-size:17px;'"
+            (click)="onShowData('/laptop')"
+          >
+            Know More Laptop
+          </button>
+        </app-ngcontent>
+      </div>
+      <div class="col-md-6">
+        <app-ngcontent>
+          <h3 class="text-primary main-title">Washing Machine</h3>
+          <button
+            class="btn btn-success px-5 py-1 suc-btn"
+            [style]="'font-size:17px;'"
+            (click)="onShowData('/washing-machine')"
+          >
+            Know More Washing Machine
+          </button>
+        </app-ngcontent>
+      </div>
+      <div class="col-md-6">
+        <app-ngcontent>
+          <h3 class="text-primary main-title">Mobile</h3>
+          <button
+            class="btn btn-success px-5 py-1 suc-btn"
+            [style]="'font-size:17px;'"
+            (click)="onShowData('/mobile')"
+          >
+            Know More Mobile
+          </button>
+        </app-ngcontent>
+      </div>
+      <div class="col-md-6">
+        <app-ngcontent>
+          <h3 class="text-primary main-title">Bird</h3>
+          <button
+            class="btn btn-success px-5 py-1 suc-btn"
+            [style]="'font-size:17px;'"
+            (click)="onShowData('/bird')"
+          >
+            Know More bird
+          </button>
+        </app-ngcontent>
+      </div>
+    </div>
+  </div>
 </div>

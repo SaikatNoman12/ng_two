@@ -20,17 +20,20 @@ import { KingCarComponent } from './about/king-car/king-car.component';
 import { HondaHrComponent } from './about/honda-hr/honda-hr.component';
 import { AudiComponent } from './about/audi/audi.component';
 import { NGFORComponent } from './ngfor/ngfor.component';
+import { NGCONTENTComponent } from './contacts/ngcontent/ngcontent.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: FormComponent },
-  { path: 'about', component: AboutComponent, children:[
-    {path:'king-car', component:KingCarComponent},
-    {path:'honda-hr', component:HondaHrComponent},
-    {path:'land-toyota', component:LandToyotaComponent},
-    {path:'audi', component:AudiComponent}
-  ] },
+  {
+    path: 'about', component: AboutComponent, children: [
+      { path: 'king-car', component: KingCarComponent },
+      { path: 'honda-hr', component: HondaHrComponent },
+      { path: 'land-toyota', component: LandToyotaComponent },
+      { path: 'audi', component: AudiComponent }
+    ]
+  },
   {
     path: 'products', children: [
       { path: '', component: ProductsComponent },
@@ -40,7 +43,15 @@ const appRoute: Routes = [
       { path: 'laptop', component: LaptopComponent },
     ]
   },
-  { path: 'contacts', component: ContactsComponent },
+  {
+    path: 'contacts', children: [
+      { path: '', component: ContactsComponent },
+      { path: 'laptop', component: LaptopComponent },
+      { path: 'washing-machine', component: WashingMachineComponent },
+      { path: 'bird', component: BirdComponent },
+      { path: 'mobile', component: MobileComponent },
+    ]
+  },
   { path: '**', component: ErrorComponent },
 ];
 
@@ -62,7 +73,8 @@ const appRoute: Routes = [
     HondaHrComponent,
     LandToyotaComponent,
     AudiComponent,
-    NGFORComponent
+    NGFORComponent,
+    NGCONTENTComponent
   ],
   imports: [
     BrowserModule,

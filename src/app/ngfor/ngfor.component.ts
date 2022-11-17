@@ -16,10 +16,22 @@ export class NGFORComponent implements OnInit {
   }
 
   arr: any[] = [];
+
+  disNone: string = 'display:none;'; // this is use for style binding;
+  addClass: boolean = false; // this is use for class binding;
+
   onAddData(input: any) {
 
     if (input.value === '' || input.value.trim() === '') {
       return;
+    }
+    /*
+    else if (this.arr.length > -1) {
+      this.disNone = 'display:block;';  // this use for style binding;
+    } 
+    */
+    else if (this.arr.length !== -1) {
+      this.addClass = true;
     }
     else if (this.arr.length > 2) {
       this.router.navigate(['products']);

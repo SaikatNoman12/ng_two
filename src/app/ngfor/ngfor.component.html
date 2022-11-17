@@ -23,7 +23,7 @@
     </div>
   </div>
 
-  <div class="showData w-75 mx-auto">
+  <div class="showData w-75 mb-5 mx-auto main-table" [style]="" [class.myClass]="addClass">
     <table
       class="table table-striped table-dark rounded"
       [style]="'overflow:hidden;'"
@@ -36,9 +36,17 @@
       </thead>
       <tbody>
         <tr class="h5" *ngFor="let data of arr; index as i">
-          <td class="text-start" [style]="'padding-top: 13px;'">{{data.name}}</td>
+          <td class="text-start" [style]="'padding-top: 13px;'">
+            {{ data.name }}
+          </td>
           <td class="text-end">
-            <button class="btn btn-danger px-5" type="button" (click)="removeBtn(i)">Remove</button>
+            <button
+              class="btn btn-danger px-5"
+              type="button"
+              (click)="removeBtn(i)"
+            >
+              Remove
+            </button>
           </td>
         </tr>
       </tbody>
