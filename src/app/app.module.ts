@@ -19,6 +19,7 @@ import { BirdComponent } from './products/bird/bird.component';
 import { KingCarComponent } from './about/king-car/king-car.component';
 import { HondaHrComponent } from './about/honda-hr/honda-hr.component';
 import { AudiComponent } from './about/audi/audi.component';
+import { NGFORComponent } from './ngfor/ngfor.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -60,7 +61,8 @@ const appRoute: Routes = [
     KingCarComponent,
     HondaHrComponent,
     LandToyotaComponent,
-    AudiComponent
+    AudiComponent,
+    NGFORComponent
   ],
   imports: [
     BrowserModule,
