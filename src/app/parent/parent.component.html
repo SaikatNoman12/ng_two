@@ -3,7 +3,6 @@
     <h1>Buy Products</h1>
   </div>
 
-  
   <ng-container *ngIf="addData">
     <div
       class="alert alert-light border text-start d-flex align-items-center m-0 mb-2"
@@ -48,14 +47,7 @@
     </div>
   </div>
 
-  <div class="bg-success text-light py-4 rounded">
-    <h3 *ngIf="!isValid">Please Select any Product</h3>
-    <h3 *ngIf="isValid">{{ selectData }} is Selected</h3>
-    <button class="btn btn-light mt-4" (click)="onAddData()">
-      Add To Cart
-    </button>
-  </div>
+  <app-cild [isValid]="isSelectedValid" [selectData]="selectCard"></app-cild>
 
-  <br />
   <br />
 </div>

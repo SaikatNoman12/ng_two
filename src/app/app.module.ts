@@ -22,6 +22,7 @@ import { AudiComponent } from './about/audi/audi.component';
 import { NGFORComponent } from './ngfor/ngfor.component';
 import { NGCONTENTComponent } from './contacts/ngcontent/ngcontent.component';
 import { ParentComponent } from './parent/parent.component';
+import { CildComponent } from './parent/cild/cild.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -77,7 +78,8 @@ const appRoute: Routes = [
     AudiComponent,
     NGFORComponent,
     NGCONTENTComponent,
-    ParentComponent
+    ParentComponent,
+    CildComponent
   ],
   imports: [
     BrowserModule,

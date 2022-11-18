@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ParentComponent implements OnInit {
 
-  isValid: boolean = false;
-  selectData: string = '';
+  isSelectedValid: boolean = false;
+  selectCard: string = '';
   addData: any;
+
+  arr: any[] = [];
+
+  myPlaceText: string = 'Hello search here your text.....';
 
   constructor() { }
 
@@ -18,24 +22,8 @@ export class ParentComponent implements OnInit {
 
 
   onSelectData(data: string) {
-    this.selectData = data;
-    this.isValid = true;
-  }
-
-  arr: any[] = [];
-
-  onAddData() {
-
-    if (this.selectData) {
-      this.addData = this.selectData;
-
-      this.arr.push({
-        name: this.addData
-      });
-    }
-    else {
-      return
-    }
+    this.selectCard = data;
+    this.isSelectedValid = true;
   }
 
   allData: any[] = [

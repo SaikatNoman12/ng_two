@@ -1,0 +1,19 @@
+<div class="bg-success text-light py-4 rounded">
+  <h3 *ngIf="!isValid">Please Select any Product</h3>
+  <h3 *ngIf="isValid">{{ selectData }} is Selected</h3>
+  <button class="btn btn-light mt-4" (click)="onAddData()">Add To Cart</button>
+</div>
+
+<!-- 
+<input
+  type="text"
+  [placeholder]="placeholderText"
+  class="form-control w-75 mx-auto mb-2"
+/>
+
+<input
+  type="text"
+  [placeholder]="placeholderTextTwo"
+  class="form-control w-75 mx-auto"
+/>
+ -->
