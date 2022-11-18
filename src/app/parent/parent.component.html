@@ -1,0 +1,61 @@
+<div class="container bg-info text-center">
+  <div class="pro-main-data">
+    <h1>Buy Products</h1>
+  </div>
+
+  
+  <ng-container *ngIf="addData">
+    <div
+      class="alert alert-light border text-start d-flex align-items-center m-0 mb-2"
+      *ngFor="let dat of arr"
+    >
+      <p class="m-0">
+        <strong class="text-success">{{ dat.name }} </strong> is selected and
+        Added in Cart.
+      </p>
+
+      <button class="btn btn-success ms-auto px-4">Checkout</button>
+    </div>
+  </ng-container>
+
+  <div class="cards p-4">
+    <div class="row gy-5">
+      <div class="col" *ngFor="let data of allData">
+        <div class="card text-start p-2">
+          <div class="image">
+            <img
+              src="{{ data.imgIn }}"
+              alt="{{ data.name }}"
+              [style]="
+                'width:100%; height:200px; margin-bottom:6px; border-radius:8px; object-fit:cover;'
+              "
+            />
+          </div>
+          <div class="info text-center">
+            <h3 class="text-primary my-4">{{ data.name }}</h3>
+          </div>
+          <div class="button text-center">
+            <button
+              class="btn btn-success px-5 py-1"
+              [style]="'font-size:17px;'"
+              (click)="onSelectData(data.name)"
+            >
+              {{ data.btnData }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-success text-light py-4 rounded">
+    <h3 *ngIf="!isValid">Please Select any Product</h3>
+    <h3 *ngIf="isValid">{{ selectData }} is Selected</h3>
+    <button class="btn btn-light mt-4" (click)="onAddData()">
+      Add To Cart
+    </button>
+  </div>
+
+  <br />
+  <br />
+</div>

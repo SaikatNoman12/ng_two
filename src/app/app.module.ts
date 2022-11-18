@@ -21,11 +21,13 @@ import { HondaHrComponent } from './about/honda-hr/honda-hr.component';
 import { AudiComponent } from './about/audi/audi.component';
 import { NGFORComponent } from './ngfor/ngfor.component';
 import { NGCONTENTComponent } from './contacts/ngcontent/ngcontent.component';
+import { ParentComponent } from './parent/parent.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: FormComponent },
+  { path: 'buy-now', component: ParentComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -74,7 +76,8 @@ const appRoute: Routes = [
     LandToyotaComponent,
     AudiComponent,
     NGFORComponent,
-    NGCONTENTComponent
+    NGCONTENTComponent,
+    ParentComponent
   ],
   imports: [
     BrowserModule,

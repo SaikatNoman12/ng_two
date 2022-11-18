@@ -41,6 +41,6 @@ export class ProductsComponent implements OnInit {
       routerLin:'washing-machine',
       imgIn:'https://www.lg.com/uk/images/microsite/washing-machine-buying-guide/LG-Washing-Machine-Buying-Guide-02-M.jpg'
     },
-  ]
+  ];
 
 }
