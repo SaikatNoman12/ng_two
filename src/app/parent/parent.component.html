@@ -3,13 +3,13 @@
     <h1>Buy Products</h1>
   </div>
 
-  <ng-container *ngIf="addData">
+  <ng-container *ngIf="addDataParent">
     <div
       class="alert alert-light border text-start d-flex align-items-center m-0 mb-2"
-      *ngFor="let dat of arr"
+      *ngFor="let data of arr"
     >
       <p class="m-0">
-        <strong class="text-success">{{ dat.name }} </strong> is selected and
+        <strong class="text-success">{{ data.name }}</strong> is selected and
         Added in Cart.
       </p>
 
@@ -47,7 +47,11 @@
     </div>
   </div>
 
-  <app-cild [isValid]="isSelectedValid" [selectData]="selectCard"></app-cild>
+  <app-cild
+    [isValid]="isSelectedValid"
+    [selectData]="selectCard"
+    (addData)="onGetChildData($event)"
+  ></app-cild>
 
   <br />
 </div>

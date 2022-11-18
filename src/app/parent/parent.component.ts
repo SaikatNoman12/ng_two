@@ -9,7 +9,7 @@ export class ParentComponent implements OnInit {
 
   isSelectedValid: boolean = false;
   selectCard: string = '';
-  addData: any;
+  addDataParent: any;
 
   arr: any[] = [];
 
@@ -24,6 +24,11 @@ export class ParentComponent implements OnInit {
   onSelectData(data: string) {
     this.selectCard = data;
     this.isSelectedValid = true;
+  }
+
+  onGetChildData(event: any) {
+    this.addDataParent = event;
+    this.arr.push(this.addDataParent);
   }
 
   allData: any[] = [

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-cild',
@@ -8,32 +8,38 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CildComponent implements OnInit {
 
   @Input() isValid: boolean = false;
+
   @Input() selectData: string = '';
-  addData: any;
 
-  @Input() placeholderText: string = 'Search here...';
+  @Output() addData: any = new EventEmitter<string>();
 
-  @Input() placeholderTextTwo: string = 'Search box two';
+/*   @Input() placeholderText: string = 'Search here...';
 
+  @Input() placeholderTextTwo: string = 'Search box two'; */
+  
   constructor() { }
-
+  
   ngOnInit(): void {
   }
-
-  arr: any[] = [];
-
+  
+  
+  obj: object = {};
   onAddData() {
 
     if (this.selectData) {
-      this.addData = this.selectData;
+     
+      this.obj = {
+        name:this.selectData
+      };
 
-      this.arr.push({
-        name: this.addData
-      });
+      this.addData.emit(this.obj);
     }
     else {
       return
     }
+
+
+
   }
 
 
