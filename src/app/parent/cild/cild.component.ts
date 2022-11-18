@@ -13,23 +13,26 @@ export class CildComponent implements OnInit {
 
   @Output() addData: any = new EventEmitter<string>();
 
-/*   @Input() placeholderText: string = 'Search here...';
+  /*   @Input() placeholderText: string = 'Search here...';
+  
+    @Input() placeholderTextTwo: string = 'Search box two'; */
 
-  @Input() placeholderTextTwo: string = 'Search box two'; */
-  
   constructor() { }
-  
+
   ngOnInit(): void {
   }
-  
-  
+
+
   obj: object = {};
   onAddData() {
 
+
+
     if (this.selectData) {
-     
+
       this.obj = {
-        name:this.selectData
+        name: this.selectData,
+        total: 1
       };
 
       this.addData.emit(this.obj);

@@ -28,7 +28,17 @@ export class ParentComponent implements OnInit {
 
   onGetChildData(event: any) {
     this.addDataParent = event;
+
+    for (let data of this.arr) {
+      if (data.name === this.selectCard) {
+        data.total++;
+        return;
+      }
+    }
+
     this.arr.push(this.addDataParent);
+
+
   }
 
   allData: any[] = [
