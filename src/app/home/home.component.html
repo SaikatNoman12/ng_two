@@ -1,6 +1,40 @@
 <div class="container text-center bg-warning p-5">
-    <h1>HOME</h1>
-    <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores fugit sapiente incidunt? Cumque, dolore. Harum delectus autem nihil eius aliquid praesentium, dolore magni. Fugit animi quae, cupiditate impedit nisi dolorem, voluptatibus tempore iste laboriosam facere excepturi unde ea temporibus ut expedita quas consequatur totam. Nihil ex modi illo, tempora qui perferendis? Quod debitis illum quasi aut reprehenderit neque earum illo incidunt odio exercitationem esse tempora veniam fugiat inventore voluptatem porro architecto doloremque dolores ullam, consequatur quae ad sint rerum temporibus. Nulla, illum asperiores nostrum consequatur ex necessitatibus quia. Enim eligendi nobis quam illo sed consequatur maxime, quia aliquam incidunt voluptas?
-    </p>
+  <h1>HOME</h1>
+  <p class="mb-5">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores fugit
+    sapiente incidunt? Cumque, dolore. Harum delectus autem nihil eius aliquid
+    praesentium, dolore magni. Fugit animi quae, cupiditate impedit nisi
+    dolorem, voluptatibus tempore iste laboriosam facere excepturi unde ea
+    temporibus ut expedita quas consequatur totam. Nihil ex modi illo, tempora
+    qui perferendis? Quod debitis illum quasi aut reprehenderit neque earum illo
+    incidunt odio exercitationem esse tempora veniam fugiat inventore voluptatem
+    porro architecto doloremque dolores ullam, consequatur quae ad sint rerum
+    temporibus. Nulla, illum asperiores nostrum consequatur ex necessitatibus
+    quia. Enim eligendi nobis quam illo sed consequatur maxime, quia aliquam
+    incidunt voluptas?
+  </p>
+
+  <ng-container *ngIf="isStatusOnline">
+    <div class="row mt-4 mb-5">
+      <div class="col-md-2" *ngFor="let pro of products">
+        <div
+          class="p-5 bg-light shadow rounded h-100 text-center d-flex align-items-center justify-content-center"
+        >
+          <h3 class="m-0">{{ pro.name }}</h3>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="isStatusOffline">
+    <div class="row mt-4 mb-5">
+      <div class="col-md-2" *ngFor="let pro of products">
+        <div
+          class="p-5 bg-light shadow rounded h-100 text-center d-flex align-items-center justify-content-center"
+        >
+          <h3 class="m-0">{{ pro.name }}</h3>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 </div>

@@ -25,7 +25,7 @@ export class NGFORComponent implements OnInit {
     if (input.value === '' || input.value.trim() === '') {
       return;
     }
-    /*
+    /* // use for style binding;
     else if (this.arr.length > -1) {
       this.disNone = 'display:block;';  // this use for style binding;
     } 
