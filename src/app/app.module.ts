@@ -1,3 +1,4 @@
+import { CardServicesService } from './service/card-services.service';
 import { LandToyotaComponent } from './about/land-toyota/land-toyota.component';
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -23,6 +24,8 @@ import { NGFORComponent } from './ngfor/ngfor.component';
 import { NGCONTENTComponent } from './contacts/ngcontent/ngcontent.component';
 import { ParentComponent } from './parent/parent.component';
 import { CildComponent } from './parent/cild/cild.component';
+import { CardOneComponent } from './home/card-one/card-one.component';
+import { CardTwoComponent } from './home/card-two/card-two.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -79,14 +82,18 @@ const appRoute: Routes = [
     NGFORComponent,
     NGCONTENTComponent,
     ParentComponent,
-    CildComponent
+    CildComponent,
+    CardOneComponent,
+    CardTwoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
   ],
-  providers: [],
+  providers: [
+    CardServicesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

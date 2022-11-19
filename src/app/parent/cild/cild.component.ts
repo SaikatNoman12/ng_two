@@ -25,9 +25,6 @@ export class CildComponent implements OnInit {
 
   obj: object = {};
   onAddData() {
-
-
-
     if (this.selectData) {
 
       this.obj = {
