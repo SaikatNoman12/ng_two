@@ -27,12 +27,14 @@ import { CildComponent } from './parent/cild/cild.component';
 import { CardOneComponent } from './home/card-one/card-one.component';
 import { CardTwoComponent } from './home/card-two/card-two.component';
 import { ChildComponent } from './home/child/child.component';
+import { ExexerciseComponent } from './exexercise/exexercise.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: FormComponent },
   { path: 'buy-now', component: ParentComponent },
+  { path: 'exercise', component: ExexerciseComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -86,7 +88,8 @@ const appRoute: Routes = [
     CildComponent,
     CardOneComponent,
     CardTwoComponent,
-    ChildComponent
+    ChildComponent,
+    ExexerciseComponent
   ],
   imports: [
     BrowserModule,

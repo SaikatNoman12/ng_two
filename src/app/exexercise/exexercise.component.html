@@ -1,0 +1,160 @@
+<div class="container text-center p-4 bg-danger">
+  <h1 class="text-uppercase text-warning">Exercise</h1>
+  <br />
+  <br />
+  <div class="row g-3">
+    <ng-container *ngIf="userInput">
+      <div class="col">
+        <div class="text-start border bg-light p-3 rounded h-100">
+          <h3 class="text-success text-center text-uppercase fw-bold">User</h3>
+          <br />
+          <table
+            class="table table-striped table-dark rounded"
+            [style]="'overflow:hidden;'"
+          >
+            <thead class="table-dark h4">
+              <tr>
+                <th class="text-start" [style]="'padding-bottom:10px;'">
+                  User Name
+                </th>
+                <th class="text-end">
+                  <button
+                    class="btn btn-danger px-5"
+                    type="button"
+                    (click)="allUserRemove()"
+                  >
+                    Remove
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let data of userDataArr; index as i">
+                <tr class="h5">
+                  <td class="text-start" [style]="'padding-top: 13px;'">
+                    {{ i + 1 }}.
+                    <strong class="text-warning"> {{ data.name }}</strong>
+                  </td>
+                  <td class="text-end">
+                    <button
+                      class="btn btn-danger px-5"
+                      type="button"
+                      (click)="userRemove(i)"
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="adminInput">
+      <div class="col">
+        <div class="text-start border bg-light p-3 rounded h-100">
+          <h3 class="text-success text-center text-uppercase fw-bold">Admin</h3>
+          <br />
+          <table
+            class="table table-striped table-dark rounded"
+            [style]="'overflow:hidden;'"
+          >
+            <thead class="table-dark h4">
+              <tr>
+                <th class="text-start" [style]="'padding-bottom:10px;'">
+                  Admin Name
+                </th>
+                <th class="text-end">
+                  <button class="btn btn-danger px-5" type="button" (click)="adminAllRemove()">
+                    Remove
+                  </button>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let data of adminDataArr; index as i">
+                <tr class="h5">
+                  <td class="text-start" [style]="'padding-top: 13px;'">
+                    {{ i + 1 }}.
+                    <strong class="text-warning">{{ data.name }}</strong>
+                  </td>
+                  <td class="text-end">
+                    <button
+                      class="btn btn-danger px-5"
+                      type="button"
+                      (click)="adminRemove(i)"
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <br />
+  <br />
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="p-3 text-center border bg-light p-3 rounded h-100">
+        <input
+          type="text"
+          class="form-control w-100 mb-4 h4"
+          [style]="'font-size:20px;'"
+          placeholder="Create User..."
+          #user
+        />
+
+        <button
+          type="button"
+          class="btn btn-success px-4 text-uppercase"
+          (click)="userAdd(user)"
+        >
+          Create
+        </button>
+
+        <br />
+        <br />
+
+        <h5 class="text-start" *ngIf="userInput">
+          Total user:
+          <strong class="text-success">{{ userDataArr.length }}</strong>
+        </h5>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="p-3 text-center border bg-light p-3 rounded h-100">
+        <input
+          type="text"
+          class="form-control w-100 mb-4"
+          [style]="'font-size:20px;'"
+          placeholder="Create Admin..."
+          #admin
+        />
+
+        <button
+          type="button"
+          class="btn btn-success px-4 text-uppercase"
+          (click)="adminAdd(admin)"
+        >
+          Create
+        </button>
+
+        <br />
+        <br />
+
+        <h5 class="text-start" *ngIf="adminInput">
+          Total user:
+          <strong class="text-success">{{ adminDataArr.length }}</strong>
+        </h5>
+      </div>
+    </div>
+  </div>
+</div>
