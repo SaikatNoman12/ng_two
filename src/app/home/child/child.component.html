@@ -1,0 +1,45 @@
+<br />
+<br />
+<h1>{{ product }}</h1>
+
+<br />
+<br />
+<div class="row bg-light p-3 rounded shadow">
+  <div class="col-md-4">
+    <h3 class="m-0">
+      Name: <strong class="text-success">{{ proObj.name }}</strong>
+    </h3>
+  </div>
+  <div class="col-md-4">
+    <h3 class="m-0">
+      Age: <strong class="text-success">{{ proObj.age }}</strong>
+    </h3>
+  </div>
+  <div class="col-md-4">
+    <h3 class="m-0">
+      Country: <strong class="text-success">{{ proObj.country }}</strong>
+    </h3>
+  </div>
+</div>
+
+<br />
+<br />
+
+<div class="row g-4">
+  <ng-container *ngFor="let pro of proArr">
+    <div class="col-md-4">
+      <div class="p-3 bg-light shadow rounded h-100 text-start">
+        <h5 class="m-0">
+          Device name: <strong class="text-success">{{ pro.name }}</strong>
+        </h5>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

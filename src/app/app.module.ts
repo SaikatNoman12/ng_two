@@ -26,6 +26,7 @@ import { ParentComponent } from './parent/parent.component';
 import { CildComponent } from './parent/cild/cild.component';
 import { CardOneComponent } from './home/card-one/card-one.component';
 import { CardTwoComponent } from './home/card-two/card-two.component';
+import { ChildComponent } from './home/child/child.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -84,7 +85,8 @@ const appRoute: Routes = [
     ParentComponent,
     CildComponent,
     CardOneComponent,
-    CardTwoComponent
+    CardTwoComponent,
+    ChildComponent
   ],
   imports: [
     BrowserModule,
