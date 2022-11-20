@@ -8,64 +8,58 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExexerciseComponent implements OnInit {
 
-  palceHolderSearch: string = 'Add user...';
-  palceHolderData: string = 'Add admin...';
-
-  constructor(private _nService: NewServiceService) { }
-
-  ngOnInit(): void {
-  }
+  placeHolderSearch: string = 'Add user...';
+  placeHolderData: string = 'Add admin...';
 
   // user data:-
   userDataArr: any[] = [];
   userInput: string = '';
 
 
+  // admin data:-
+  adminDataArr: any[] = [];
+  adminInput: string = '';
+
+  constructor(private _nService: NewServiceService) { }
+
+  ngOnInit(): void {
+  }
+
+  // user function:-
   myUserData(event: any) {
     this.userDataArr.push(event);
     this.userInput = event.name;
   }
 
-
-
   userRemove(index: number): void {
-    this.userDataArr.splice(index, 1);
+    this._nService.singleRemove(index, this.userDataArr);
     if (this.userDataArr.length <= 0) {
       this.userInput = '';
     }
   }
 
   allUserRemove(): void {
-    this.userDataArr.splice(0, this.userDataArr.length);
-
-    // this.userDataArr = [];
-
+    this._nService.allRemove(this.userDataArr);
     if (this.userDataArr.length <= 0) {
       this.userInput = '';
     }
   }
 
-
-  // admin data:-
-  adminDataArr: any[] = [];
-  adminInput: string = '';
-
+  // admin function:-
   myAdminData(event: any) {
     this.adminDataArr.push(event);
     this.adminInput = event.name;
   }
 
   adminRemove(index: number): void {
-    // this.adminDataArr.splice(index, 1);
     this._nService.singleRemove(index, this.adminDataArr);
     if (this.adminDataArr.length <= 0) {
       this.adminInput = '';
     }
-
   }
 
   adminAllRemove() {
-    this.adminDataArr.splice(0, this.adminDataArr.length);
+    this._nService.allRemove(this.adminDataArr);
     if (this.adminDataArr.length <= 0) {
       this.adminInput = '';
     }

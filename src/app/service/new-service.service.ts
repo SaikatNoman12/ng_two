@@ -4,13 +4,17 @@ import { Injectable, Output } from '@angular/core';
   providedIn: 'root'
 })
 export class NewServiceService {
+  
+  adminDataObj: any = {};
 
   constructor() { }
 
-  adminDataObj: any = {};
-
   singleRemove(index: any, adminDataArr: any): void {
     adminDataArr.splice(index, 1);
+  }
+
+  allRemove(dataArr: any): void {
+    dataArr.splice(0, dataArr.length);
   }
 
 }
