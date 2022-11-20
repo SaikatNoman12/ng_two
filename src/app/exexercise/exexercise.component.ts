@@ -1,3 +1,4 @@
+import { NewServiceService } from './../service/new-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExexerciseComponent implements OnInit {
 
-  constructor() { }
+  palceHolderSearch: string = 'Add user...';
+  palceHolderData: string = 'Add admin...';
+
+  constructor(private _nService: NewServiceService) { }
 
   ngOnInit(): void {
   }
@@ -46,18 +50,18 @@ export class ExexerciseComponent implements OnInit {
   adminDataArr: any[] = [];
   adminInput: string = '';
 
-
   myAdminData(event: any) {
     this.adminDataArr.push(event);
     this.adminInput = event.name;
-    console.log(this.adminInput);
   }
 
   adminRemove(index: number): void {
-    this.adminDataArr.splice(index, 1);
+    // this.adminDataArr.splice(index, 1);
+    this._nService.singleRemove(index, this.adminDataArr);
     if (this.adminDataArr.length <= 0) {
       this.adminInput = '';
     }
+
   }
 
   adminAllRemove() {

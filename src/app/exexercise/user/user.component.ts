@@ -7,16 +7,17 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
   // user data:-
+  @Input() placeHolderData: string = '';
   @Input() userDataArr: any[] = [];
   @Output() userInput: any = new EventEmitter<string>();
   @Input() userData: string = '';
   myObj: any = {};
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   userAdd(user: any) {
 
@@ -30,7 +31,7 @@ export class UserComponent implements OnInit {
       }
 
       this.userInput.emit(this.myObj);
-      // this.userInpu.emit(this.userData);
+      user.value = '';
     }
   }
 

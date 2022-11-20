@@ -110,6 +110,7 @@
       <app-user
         [userDataArr]="userDataArr"
         [userData]="userInput"
+        [placeHolderData]="palceHolderSearch"
         (userInput)="myUserData($event)"
       ></app-user>
     </div>
@@ -118,6 +119,7 @@
       <app-admin
         [adminInput]="adminInput"
         [adminDataArr]="adminDataArr"
+        [placeHolderText]="palceHolderData"
         (adminData)="myAdminData($event)"
       ></app-admin>
     </div>

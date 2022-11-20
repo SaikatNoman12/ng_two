@@ -1,3 +1,4 @@
+import { NewServiceService } from './service/new-service.service';
 import { CardServicesService } from './service/card-services.service';
 import { LandToyotaComponent } from './about/land-toyota/land-toyota.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -6,7 +7,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './home/header/header.component';
 import { AboutComponent } from './about/about.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ProductsComponent } from './products/products.component';
@@ -28,6 +29,8 @@ import { CardOneComponent } from './home/card-one/card-one.component';
 import { CardTwoComponent } from './home/card-two/card-two.component';
 import { ChildComponent } from './home/child/child.component';
 import { ExexerciseComponent } from './exexercise/exexercise.component';
+import { UserComponent } from './exexercise/user/user.component';
+import { AdminComponent } from './exexercise/admin/admin.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -89,7 +92,9 @@ const appRoute: Routes = [
     CardOneComponent,
     CardTwoComponent,
     ChildComponent,
-    ExexerciseComponent
+    ExexerciseComponent,
+    UserComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +102,8 @@ const appRoute: Routes = [
     RouterModule.forRoot(appRoute),
   ],
   providers: [
-    CardServicesService
+    CardServicesService,
+    NewServiceService
   ],
   bootstrap: [AppComponent]
 })
