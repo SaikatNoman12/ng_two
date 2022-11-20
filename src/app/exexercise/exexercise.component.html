@@ -52,7 +52,7 @@
       </div>
     </ng-container>
 
-    <ng-container *ngIf="">
+    <ng-container *ngIf="adminInput">
       <div class="col">
         <div class="text-start border bg-light p-3 rounded h-100">
           <h3 class="text-success text-center text-uppercase fw-bold">Admin</h3>
@@ -115,7 +115,11 @@
     </div>
 
     <div class="col-md-6">
-      <app-admin></app-admin>
+      <app-admin
+        [adminInput]="adminInput"
+        [adminDataArr]="adminDataArr"
+        (adminData)="myAdminData($event)"
+      ></app-admin>
     </div>
   </div>
 </div>

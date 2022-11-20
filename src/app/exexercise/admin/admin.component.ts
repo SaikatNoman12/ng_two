@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-admin',
@@ -12,18 +12,23 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  adminDataArr: any[] = [];
-  adminInput: string = '';
+  @Input() adminDataArr: any[] = [];
+  @Input() adminInput: string = '';
+  @Output() adminData: any = new EventEmitter<string>();
+  adminDataObj:any = {};
 
   adminAdd(admin: any): void {
     if (admin.value === '' || admin.value.trim() === '') {
       alert("Please Enter Input Text.");
     }
     else {
-      this.adminInput = admin.value;
-      this.adminDataArr.push({
-        name: this.adminInput
-      });
+
+      this.adminDataObj = {
+        name:admin.value
+      };
+
+      this.adminData.emit(this.adminDataObj);
+
     }
   }
 

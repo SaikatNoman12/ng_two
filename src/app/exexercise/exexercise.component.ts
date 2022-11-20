@@ -46,16 +46,11 @@ export class ExexerciseComponent implements OnInit {
   adminDataArr: any[] = [];
   adminInput: string = '';
 
-  adminAdd(admin: any): void {
-    if (admin.value === '' || admin.value.trim() === '') {
-      alert("Please Enter Input Text.");
-    }
-    else {
-      this.adminInput = admin.value;
-      this.adminDataArr.push({
-        name: this.adminInput
-      });
-    }
+
+  myAdminData(event: any) {
+    this.adminDataArr.push(event);
+    this.adminInput = event.name;
+    console.log(this.adminInput);
   }
 
   adminRemove(index: number): void {
