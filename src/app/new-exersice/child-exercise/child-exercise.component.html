@@ -1,0 +1,15 @@
+<div class="p-3 text-center p-3 rounded h-100" [ngClass]="{ boxRed: boxColor === 'red', boxGreen: boxColor === 'green' }">
+    <input type="text" class="form-control w-100 mb-4" [style]="'font-size:20px;'" [placeholder]="placeHolderText" #reference />
+
+    <button type="button" class="btn btn-success px-4 text-uppercase" (click)="addData(reference)">
+    Create
+  </button>
+
+    <br />
+    <br />
+
+    <h5 class="text-start" *ngIf="inData">
+        Total user:
+        <strong class="text-success">{{ arrData.length }}</strong>
+    </h5>
+</div>

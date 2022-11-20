@@ -1,0 +1,9 @@
+.boxGreen {
+    background-color: rgba(207, 246, 207, 0.963);
+    border: 2px solid green;
+}
+
+.boxRed {
+    background-color: rgba(246, 207, 207, 0.963);
+    border: 2px solid rgb(248, 7, 7);
+}

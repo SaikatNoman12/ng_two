@@ -31,6 +31,8 @@ import { ChildComponent } from './home/child/child.component';
 import { ExexerciseComponent } from './exexercise/exexercise.component';
 import { UserComponent } from './exexercise/user/user.component';
 import { AdminComponent } from './exexercise/admin/admin.component';
+import { NewExersiceComponent } from './new-exersice/new-exersice.component';
+import { ChildExerciseComponent } from './new-exersice/child-exercise/child-exercise.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -94,7 +96,9 @@ const appRoute: Routes = [
     ChildComponent,
     ExexerciseComponent,
     UserComponent,
-    AdminComponent
+    AdminComponent,
+    NewExersiceComponent,
+    ChildExerciseComponent
   ],
   imports: [
     BrowserModule,
