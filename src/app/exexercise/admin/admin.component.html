@@ -1,0 +1,25 @@
+<div class="p-3 text-center border bg-light p-3 rounded h-100">
+  <input
+    type="text"
+    class="form-control w-100 mb-4"
+    [style]="'font-size:20px;'"
+    placeholder="Create Admin..."
+    #admin
+  />
+
+  <button
+    type="button"
+    class="btn btn-success px-4 text-uppercase"
+    (click)="adminAdd(admin)"
+  >
+    Create
+  </button>
+
+  <br />
+  <br />
+
+  <h5 class="text-start" *ngIf="adminInput">
+    Total user:
+    <strong class="text-success">{{ adminDataArr.length }}</strong>
+  </h5>
+</div>

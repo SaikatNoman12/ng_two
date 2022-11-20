@@ -16,21 +16,15 @@ export class ExexerciseComponent implements OnInit {
   userDataArr: any[] = [];
   userInput: string = '';
 
-  userAdd(user: any) {
 
-    if (user.value === '' || user.value.trim() === '') {
-      alert('Please Enter Input Text.');
-    }
-    else {
-      this.userInput = user.value;
-      this.userDataArr.push({
-        name: this.userInput
-      });
-    }
+  myUserData(event: any) {
+    this.userDataArr.push(event);
+    this.userInput = event.name;
   }
 
-  userRemove(index: number): void {
 
+
+  userRemove(index: number): void {
     this.userDataArr.splice(index, 1);
     if (this.userDataArr.length <= 0) {
       this.userInput = '';
@@ -46,6 +40,7 @@ export class ExexerciseComponent implements OnInit {
       this.userInput = '';
     }
   }
+
 
   // admin data:-
   adminDataArr: any[] = [];

@@ -51,7 +51,8 @@
         </div>
       </div>
     </ng-container>
-    <ng-container *ngIf="adminInput">
+
+    <ng-container *ngIf="">
       <div class="col">
         <div class="text-start border bg-light p-3 rounded h-100">
           <h3 class="text-success text-center text-uppercase fw-bold">Admin</h3>
@@ -66,7 +67,11 @@
                   Admin Name
                 </th>
                 <th class="text-end">
-                  <button class="btn btn-danger px-5" type="button" (click)="adminAllRemove()">
+                  <button
+                    class="btn btn-danger px-5"
+                    type="button"
+                    (click)="adminAllRemove()"
+                  >
                     Remove
                   </button>
                 </th>
@@ -102,59 +107,15 @@
 
   <div class="row">
     <div class="col-md-6">
-      <div class="p-3 text-center border bg-light p-3 rounded h-100">
-        <input
-          type="text"
-          class="form-control w-100 mb-4 h4"
-          [style]="'font-size:20px;'"
-          placeholder="Create User..."
-          #user
-        />
-
-        <button
-          type="button"
-          class="btn btn-success px-4 text-uppercase"
-          (click)="userAdd(user)"
-        >
-          Create
-        </button>
-
-        <br />
-        <br />
-
-        <h5 class="text-start" *ngIf="userInput">
-          Total user:
-          <strong class="text-success">{{ userDataArr.length }}</strong>
-        </h5>
-      </div>
+      <app-user
+        [userDataArr]="userDataArr"
+        [userData]="userInput"
+        (userInput)="myUserData($event)"
+      ></app-user>
     </div>
 
     <div class="col-md-6">
-      <div class="p-3 text-center border bg-light p-3 rounded h-100">
-        <input
-          type="text"
-          class="form-control w-100 mb-4"
-          [style]="'font-size:20px;'"
-          placeholder="Create Admin..."
-          #admin
-        />
-
-        <button
-          type="button"
-          class="btn btn-success px-4 text-uppercase"
-          (click)="adminAdd(admin)"
-        >
-          Create
-        </button>
-
-        <br />
-        <br />
-
-        <h5 class="text-start" *ngIf="adminInput">
-          Total user:
-          <strong class="text-success">{{ adminDataArr.length }}</strong>
-        </h5>
-      </div>
+      <app-admin></app-admin>
     </div>
   </div>
 </div>
