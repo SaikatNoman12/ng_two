@@ -13,7 +13,6 @@ export class ChildExerciseComponent implements OnInit {
   @Input() placeHolderText: string = '';
   @Input() arrData: any[] = [];
   @Input() inData: string = '';
-  @Input() colorGet: string = '';
 
   @Output() inValue: any = new EventEmitter<string>();
 

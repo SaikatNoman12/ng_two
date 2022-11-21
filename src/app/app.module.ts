@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { MyServiceService } from './service/my-service.service';
 import { NewServiceService } from './service/new-service.service';
 import { CardServicesService } from './service/card-services.service';
@@ -34,6 +35,7 @@ import { UserComponent } from './exexercise/user/user.component';
 import { AdminComponent } from './exexercise/admin/admin.component';
 import { NewExersiceComponent } from './new-exersice/new-exersice.component';
 import { ChildExerciseComponent } from './new-exersice/child-exercise/child-exercise.component';
+import { GetApiDataComponent } from './get-api-data/get-api-data.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -41,6 +43,7 @@ const appRoute: Routes = [
   { path: 'login', component: FormComponent },
   { path: 'buy-now', component: ParentComponent },
   { path: 'exercise', component: ExexerciseComponent },
+  { path: 'get-api', component: GetApiDataComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -99,12 +102,14 @@ const appRoute: Routes = [
     UserComponent,
     AdminComponent,
     NewExersiceComponent,
-    ChildExerciseComponent
+    ChildExerciseComponent,
+    GetApiDataComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
+    HttpClientModule
   ],
   providers: [
     CardServicesService,

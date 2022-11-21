@@ -1,0 +1,20 @@
+<div class="container bg-success p-5 text-center">
+  <h1 class="text-light">Get Api Data</h1>
+  <br />
+  <p class="text-light">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti esse
+    provident vero, voluptates iure facere culpa! Blanditiis magni ut quasi.
+  </p>
+  <br />
+
+  <div class="bg-light rounded shadow p-4 text-start">
+    <ng-container *ngFor="let pro of products">
+      <h5 class="mb-3">
+        Id:
+        <strong class="text-success">{{ pro.id }}</strong> &nbsp;
+        <br />
+        Name:<strong class="text-success">{{ pro.name }}</strong>
+      </h5>
+    </ng-container>
+  </div>
+</div>
