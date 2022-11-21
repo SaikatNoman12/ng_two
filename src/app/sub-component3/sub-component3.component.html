@@ -1,0 +1,9 @@
+<div class="border p-3 bg-success rounded">
+  <h5 class="text-light mb-3">
+    User name: <strong class="text-warning">{{userName}}</strong>
+  </h5>
+  <div class="d-flex align-items-center">
+    <input type="text" class="form-control me-3" [placeholder]="placeHolderText" #refer/>
+    <button type="button" class="btn btn-danger px-4" (click)="onAddData(refer)">Add</button>
+  </div>
+</div>

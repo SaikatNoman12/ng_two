@@ -7,7 +7,7 @@
   </p>
   <br />
 
-  <div class="bg-light rounded shadow p-4 text-start">
+  <div class="bg-light rounded shadow p-4 text-start" *ngIf="products">
     <ng-container *ngFor="let pro of products">
       <h5 class="mb-3">
         Id:

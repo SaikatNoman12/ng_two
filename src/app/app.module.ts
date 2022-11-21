@@ -36,6 +36,11 @@ import { AdminComponent } from './exexercise/admin/admin.component';
 import { NewExersiceComponent } from './new-exersice/new-exersice.component';
 import { ChildExerciseComponent } from './new-exersice/child-exercise/child-exercise.component';
 import { GetApiDataComponent } from './get-api-data/get-api-data.component';
+import { SubjectComponentComponent } from './subject-component/subject-component.component';
+import { SubComponentComponent } from './sub-component/sub-component.component';
+import { SubComponent2Component } from './sub-component2/sub-component2.component';
+import { SubComponent3Component } from './sub-component3/sub-component3.component';
+import { SubComponent4Component } from './sub-component4/sub-component4.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -44,6 +49,7 @@ const appRoute: Routes = [
   { path: 'buy-now', component: ParentComponent },
   { path: 'exercise', component: ExexerciseComponent },
   { path: 'get-api', component: GetApiDataComponent },
+  { path: 'subject', component: SubjectComponentComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -103,7 +109,12 @@ const appRoute: Routes = [
     AdminComponent,
     NewExersiceComponent,
     ChildExerciseComponent,
-    GetApiDataComponent
+    GetApiDataComponent,
+    SubjectComponentComponent,
+    SubComponentComponent,
+    SubComponent2Component,
+    SubComponent3Component,
+    SubComponent4Component
   ],
   imports: [
     BrowserModule,
