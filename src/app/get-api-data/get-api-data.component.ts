@@ -8,16 +8,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GetApiDataComponent implements OnInit {
 
-  constructor(private _apiGet:GgetApiService) { }
+  constructor(private _apiGet: GgetApiService) { }
 
   products: any;
 
   ngOnInit(): void {
+
+    // this._apiGet.users().subscribe(
+    //   async (apiData: any) => {
+    //     this.products = apiData;
+    //     console.log(this.products);
+    //   }
+    // );
+
+    // this._apiGet.users().subscribe(
+    //   proData => {
+    //     this.products = proData;
+    //     console.log(this.products);
+    //   }
+    // );
+
     this._apiGet.users().subscribe(
       proData => this.products = proData
     );
+
   }
 
-  
+
 
 }
