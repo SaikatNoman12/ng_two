@@ -1,3 +1,4 @@
+import { MyServiceService } from './../service/my-service.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,17 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewExersiceComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-
   // User data:-
   userColorSet: string = 'red';
   userArr: any[] = [];
   userInput: string = '';
 
+
+  // Admin data:-
+  adminColorSet: string = 'red';
+  adminArr: any[] = [];
+  adminInput: string = '';
+
+  constructor(
+    private _myService: MyServiceService
+  ) { }
+
+  ngOnInit(): void {
+  }
+
+
+  // User functions:-
   myUserValue(eventData: any): void {
     this.userArr.push({
       name: eventData
@@ -27,7 +37,7 @@ export class NewExersiceComponent implements OnInit {
   }
 
   singleRemove(index: number) {
-    this.userArr.splice(index, 1);
+    this._myService.singleRemove(this.userArr, index);
     if (this.userArr.length <= 0) {
       this.userColorSet = 'red';
       this.userInput = '';
@@ -35,17 +45,14 @@ export class NewExersiceComponent implements OnInit {
   }
 
   allUserRemove() {
-    this.userArr.splice(0, this.userArr.length);
+    this._myService.allRemove(this.userArr);
     this.userColorSet = 'red';
     this.userInput = '';
   }
 
 
-  // admin data:-
-  adminColorSet: string = 'red';
-  adminArr: any[] = [];
-  adminInput: string = '';
 
+  // Admin functions:-
   myAdminValue(eventData: any) {
     this.adminArr.push({
       name: eventData
@@ -55,7 +62,7 @@ export class NewExersiceComponent implements OnInit {
   }
 
   singleAdminRemove(index: number) {
-    this.adminArr.splice(index, 1);
+    this._myService.singleRemove(this.adminArr, index);
     if (this.adminArr.length <= 0) {
       this.adminColorSet = 'red';
       this.adminInput = '';
@@ -63,7 +70,7 @@ export class NewExersiceComponent implements OnInit {
   }
 
   allRemove() {
-    this.adminArr.splice(0, this.adminArr.length);
+    this._myService.allRemove(this.adminArr);
     this.adminColorSet = 'red';
     this.adminInput = '';
   }

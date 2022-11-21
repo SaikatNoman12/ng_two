@@ -1,3 +1,4 @@
+import { MyServiceService } from './service/my-service.service';
 import { NewServiceService } from './service/new-service.service';
 import { CardServicesService } from './service/card-services.service';
 import { LandToyotaComponent } from './about/land-toyota/land-toyota.component';
@@ -107,7 +108,8 @@ const appRoute: Routes = [
   ],
   providers: [
     CardServicesService,
-    NewServiceService
+    NewServiceService,
+    MyServiceService
   ],
   bootstrap: [AppComponent]
 })
