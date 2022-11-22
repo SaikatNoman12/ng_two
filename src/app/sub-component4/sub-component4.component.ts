@@ -8,6 +8,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SubComponent4Component implements OnInit {
 
+  @Input() placeHolderText: string = '';
+
+  userName: string = '';
+
   constructor(private _myService: SubjectSerService) {
     _myService.uName.subscribe((uname: any) => {
       this.userName = uname;
@@ -17,11 +21,7 @@ export class SubComponent4Component implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() placeHolderText: string = '';
-
-  userName: string = 'Jhone Deo';
-
-  addData(ref:any):void{
+  addData(ref: any): void {
     this._myService.uName.next(ref.value);
   }
 

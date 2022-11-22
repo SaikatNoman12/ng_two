@@ -10,14 +10,14 @@ export class SubComponent2Component implements OnInit {
 
   @Input() placeHolderText: string = '';
 
+  userName: string = '';
+
   constructor(private _subService: SubjectSerService) {
     _subService.uName.subscribe((data: any) => this.userName = data);
   }
 
   ngOnInit(): void {
   }
-
-  userName: string = 'Jhone Deo';
 
   onAddData(refer: any) {
     this._subService.uName.next(refer.value);

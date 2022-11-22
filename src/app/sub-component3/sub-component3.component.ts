@@ -10,6 +10,8 @@ export class SubComponent3Component implements OnInit {
 
   @Input() placeHolderText: string = '';
 
+  userName: string = '';
+
   constructor(private _dataService: SubjectSerService) {
     _dataService.uName.subscribe((data: any) => {
       this.userName = data;
@@ -18,8 +20,6 @@ export class SubComponent3Component implements OnInit {
 
   ngOnInit(): void {
   }
-
-  userName: string = 'Jhone Deo';
 
   onAddData(ref: any) {
     this._dataService.uName.next(ref.value);
