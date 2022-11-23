@@ -41,6 +41,10 @@ import { SubComponentComponent } from './sub-component/sub-component.component';
 import { SubComponent2Component } from './sub-component2/sub-component2.component';
 import { SubComponent3Component } from './sub-component3/sub-component3.component';
 import { SubComponent4Component } from './sub-component4/sub-component4.component';
+import { HooksComponent } from './hooks/hooks.component';
+import { ChildCompComponent } from './hooks/child-comp/child-comp.component';
+import { ViewChildComponent } from './view-child/view-child.component';
+import { ChildViewComponent } from './view-child/child-view/child-view.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -50,6 +54,7 @@ const appRoute: Routes = [
   { path: 'exercise', component: ExexerciseComponent },
   { path: 'get-api', component: GetApiDataComponent },
   { path: 'subject', component: SubjectComponentComponent },
+  { path: 'hooks', component: HooksComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -114,7 +119,11 @@ const appRoute: Routes = [
     SubComponentComponent,
     SubComponent2Component,
     SubComponent3Component,
-    SubComponent4Component
+    SubComponent4Component,
+    HooksComponent,
+    ChildCompComponent,
+    ViewChildComponent,
+    ChildViewComponent
   ],
   imports: [
     BrowserModule,

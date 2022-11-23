@@ -1,0 +1,27 @@
+<div class="container p-5 text-center bg-warning">
+  <h1>Hooks In Angular</h1>
+  <br />
+  <div class="d-flex align-items-center justify-content-between w-50 mx-auto">
+    <input
+      type="text"
+      class="form-control w-75"
+      placeholder="Add component data..."
+      #refer
+    />
+    <button class="btn btn-success w-25 ms-4" (click)="onDataAdd(refer)">
+      Add Data
+    </button>
+  </div>
+  <br />
+  <div *ngIf="destroy">
+    <app-child-comp [userData]="inData">
+      <h4 class="text-warning m-0">Hello Shamim</h4>
+      <h4 class="dad text-warning mb-3">Hello Nadim</h4>
+    </app-child-comp>
+  </div>
+
+  <br />
+  <br />
+
+  <button (click)="onDestroy()" class="btn btn-danger px-5">Destroy Component</button>
+</div>
