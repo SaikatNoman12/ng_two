@@ -1,1 +1,21 @@
-<p>view-child works!</p>
+<div class="container bg-primary p-5 text-center">
+  <h1 class="mb-3">View Child</h1>
+
+  <div #title>
+    <h4 class="text-white">
+      My name is <strong class="text-black">{{ userName }}</strong>
+    </h4>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-danger px-3" (click)="changeChildMethod()">Change Child Property</button> &nbsp;
+    &nbsp; &nbsp;
+    <button class="btn btn-danger px-3" (click)="callChildMethod()">Call Child Method</button>
+  </div>
+
+  <br />
+
+  <div>
+    <app-child-view></app-child-view>
+  </div>
+</div>

@@ -55,6 +55,7 @@ const appRoute: Routes = [
   { path: 'get-api', component: GetApiDataComponent },
   { path: 'subject', component: SubjectComponentComponent },
   { path: 'hooks', component: HooksComponent },
+  { path: 'viewChild', component: ViewChildComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
