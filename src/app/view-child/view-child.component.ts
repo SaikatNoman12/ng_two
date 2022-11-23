@@ -1,5 +1,6 @@
+import { ChildView2Component } from './child-view2/child-view2.component';
 import { ChildViewComponent } from './child-view/child-view.component';
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-view-child',
@@ -12,11 +13,17 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
 
   @ViewChild('title') title!: ElementRef;
 
+  @ViewChild('titleTwo') titleTwo!: ElementRef;
+
   @ViewChild(ChildViewComponent) box!: ChildViewComponent;
 
-  constructor() { }
+  @ViewChild(ChildView2Component) child!: ChildView2Component;
+
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+
+
   }
 
   ngAfterViewInit(): void {
@@ -26,7 +33,13 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
     this.title.nativeElement.classList = 'newClass';
 
     this.title.nativeElement.firstElementChild.innerHTML = "Set ViewChild() directive Value.";
+
+    this.renderer.setStyle(this.titleTwo.nativeElement, 'backgroundColor', 'crimson');
+    this.renderer.setStyle(this.titleTwo.nativeElement, 'padding', '30px');
+    this.renderer.setStyle(this.titleTwo.nativeElement, 'borderRadius', '10px');
+    this.renderer.addClass(this.titleTwo.nativeElement, 'ggg');
   }
+
 
   changeChildMethod() {
     if (this.box.userDetail === "Mahin Khan") {
@@ -37,8 +50,20 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
     }
   }
 
+
   callChildMethod() {
     this.box.onShowAlert();
   }
+
+  changeChildMethod2() {
+
+    this.child.userDetail = this.child.userDetail === 'User Default Value 2' ? 'Rahim  khan Is Here!' : 'User Default Value 2';
+
+  }
+
+  callChildMethod2() {
+    this.child.onAlert();
+  }
+
 
 }

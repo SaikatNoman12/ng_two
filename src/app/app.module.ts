@@ -45,6 +45,7 @@ import { HooksComponent } from './hooks/hooks.component';
 import { ChildCompComponent } from './hooks/child-comp/child-comp.component';
 import { ViewChildComponent } from './view-child/view-child.component';
 import { ChildViewComponent } from './view-child/child-view/child-view.component';
+import { ChildView2Component } from './view-child/child-view2/child-view2.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -124,7 +125,8 @@ const appRoute: Routes = [
     HooksComponent,
     ChildCompComponent,
     ViewChildComponent,
-    ChildViewComponent
+    ChildViewComponent,
+    ChildView2Component
   ],
   imports: [
     BrowserModule,

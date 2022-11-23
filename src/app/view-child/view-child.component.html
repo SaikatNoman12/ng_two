@@ -8,14 +8,47 @@
   </div>
 
   <div class="mt-4">
-    <button class="btn btn-danger px-3" (click)="changeChildMethod()">Change Child Property</button> &nbsp;
-    &nbsp; &nbsp;
-    <button class="btn btn-danger px-3" (click)="callChildMethod()">Call Child Method</button>
+    <button class="btn btn-danger px-3" (click)="changeChildMethod()">
+      Change Child Property
+    </button>
+    &nbsp; &nbsp; &nbsp;
+    <button class="btn btn-danger px-3" (click)="callChildMethod()">
+      Call Child Method
+    </button>
   </div>
 
   <br />
 
   <div>
     <app-child-view></app-child-view>
+  </div>
+
+  <br />
+  <br />
+  <br />
+
+  <div #titleTwo>
+    <h4 class="text-white">
+      My name is <strong class="text-black">Khan Kamal</strong>
+    </h4>
+  </div>
+
+  <div class="mt-4">
+    <button class="btn btn-danger px-3" (click)="changeChildMethod2()">
+      Change Child Property
+    </button>
+    &nbsp; &nbsp; &nbsp;
+    <button class="btn btn-danger px-3" (click)="callChildMethod2()">
+      Call Child Method
+    </button>
+  </div>
+  <br />
+
+  <div>
+    <app-child-view2>
+      <p #childPara>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+      </p>
+    </app-child-view2>
   </div>
 </div>
