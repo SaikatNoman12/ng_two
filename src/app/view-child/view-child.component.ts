@@ -23,6 +23,7 @@ export class ViewChildComponent implements OnInit, AfterViewInit {
     this.title.nativeElement.style.background = "crimson";
     this.title.nativeElement.style.padding = "30px";
     this.title.nativeElement.style.borderRadius = '10px';
+    this.title.nativeElement.classList = 'newClass';
 
     this.title.nativeElement.firstElementChild.innerHTML = "Set ViewChild() directive Value.";
   }
