@@ -32,14 +32,14 @@
 
   <div class="drop">
     <div class="myContent" appDropDirective>
-      <span>My Drop Down</span>
+      <span>{{ userData }}</span>
     </div>
     <div class="dorp-down-item">
-      <a href="#">Item 1</a>
-      <a href="#">Item 2</a>
-      <a href="#">Item 3</a>
-      <a href="#">Item 4</a>
-      <a href="#">Item 5</a>
+      <a (click)="onshowDown($event)">Item 1</a>
+      <a (click)="onshowDown($event)">Item 2</a>
+      <a (click)="onshowDown($event)">Item 3</a>
+      <a (click)="onshowDown($event)">Item 4</a>
+      <a (click)="onshowDown($event)">Item 5</a>
     </div>
   </div>
 

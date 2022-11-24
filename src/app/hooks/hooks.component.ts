@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { DropDirectiveDirective } from './../Directive/drop-directive.directive';
+import { Component, OnInit, ViewChild, Directive } from '@angular/core';
+
 
 @Component({
   selector: 'app-hooks',
@@ -9,10 +11,12 @@ export class HooksComponent implements OnInit {
 
   constructor() { }
 
+ @ViewChild(DropDirectiveDirective) dire!:DropDirectiveDirective
+
   ngOnInit(): void {
   }
 
-  
+
 
   inData: string = 'Jhone Deo';
 
@@ -20,10 +24,17 @@ export class HooksComponent implements OnInit {
     this.inData = ref.value;
   }
 
-  destroy:boolean = true;
+  destroy: boolean = true;
 
-  onDestroy(){
+  onDestroy() {
     this.destroy = false;
+  }
+
+  userData: string = 'My Drop Down';
+
+  onshowDown(event: any) {
+    this.userData = event.target.innerText;
+    this.dire.myClick();
   }
 
 }
