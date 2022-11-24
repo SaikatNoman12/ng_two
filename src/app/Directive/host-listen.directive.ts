@@ -23,7 +23,7 @@ export class HostListenDirective {
   }
 
   @HostListener('mouseout') myMouseOut() {
-    this.renderer.setStyle(this.element.nativeElement, 'background', '#fff')
+    this.renderer.setStyle(this.element.nativeElement, 'background', '')
   }
 
 }
