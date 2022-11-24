@@ -11,7 +11,7 @@ export class HooksComponent implements OnInit {
 
   constructor() { }
 
- @ViewChild(DropDirectiveDirective) dire!:DropDirectiveDirective
+ @ViewChild(DropDirectiveDirective) dropDire!:DropDirectiveDirective;
 
   ngOnInit(): void {
   }
@@ -34,7 +34,7 @@ export class HooksComponent implements OnInit {
 
   onshowDown(event: any) {
     this.userData = event.target.innerText;
-    this.dire.myClick();
+    this.dropDire.myClick();
   }
 
 }

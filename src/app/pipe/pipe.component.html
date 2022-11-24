@@ -1,0 +1,45 @@
+<div class="container p-5 bg-primary text-center">
+  <h1>Pipe Is Here</h1>
+  <br />
+  <div class="text-start">
+    <h4>
+      UpperCase: <strong class="text-light">{{ pipeData | uppercase }}</strong>
+    </h4>
+    <br />
+    <h4>
+      LowerCase: <strong class="text-light">{{ pipeData | lowercase }}</strong>
+    </h4>
+    <br />
+    <h4>
+      TitleCase: <strong class="text-light">{{ pipeData | titlecase }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Percent: <strong class="text-light">{{ percentPipe | percent }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Decimal: <strong class="text-light">{{ decimalPipe | number: "1.0-0" }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Multiple Pipe Date: <strong class="text-light">{{ dataDate | date | uppercase }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Short Date: <strong class="text-light">{{ dataDate | date: "short" }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Medium Date: <strong class="text-light">{{ dataDate | date: "medium" }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Long Date: <strong class="text-light">{{ dataDate | date: "long" }}</strong>
+    </h4>
+    <br />
+    <h4>
+      Short Date: <strong class="text-light">{{ dataDate | date: "shortDate" }}</strong>
+    </h4>
+  </div>
+</div>

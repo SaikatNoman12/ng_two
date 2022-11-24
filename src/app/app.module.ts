@@ -51,6 +51,7 @@ import { ViewChild3Component } from './view-child/view-child3/view-child3.compon
 import { HostListenDirective } from './Directive/host-listen.directive';
 import { BindHostDirective } from './Directive/bind-host.directive';
 import { DropDirectiveDirective } from './Directive/drop-directive.directive';
+import { PipeComponent } from './pipe/pipe.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -62,6 +63,7 @@ const appRoute: Routes = [
   { path: 'subject', component: SubjectComponentComponent },
   { path: 'hooks', component: HooksComponent },
   { path: 'viewChild', component: ViewChildComponent },
+  { path: 'pipe', component: PipeComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -136,7 +138,8 @@ const appRoute: Routes = [
     ViewChild3Component,
     HostListenDirective,
     BindHostDirective,
-    DropDirectiveDirective
+    DropDirectiveDirective,
+    PipeComponent
   ],
   imports: [
     BrowserModule,
