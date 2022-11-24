@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -9,20 +10,38 @@ export class HomeComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  // click event use @HostListener:--
+  @HostListener('click') myclick() {
+    alert('Hello clicked');
   }
 
-  isStatusOnline:boolean = true;
-  isStatusOffline:boolean = false;
+  // scroll event use @HostListener jquery:-- 
+  @HostListener('window:scroll', ['$event']) myScroll() {
+    console.log('scrolling is here!!!!!!');
+  }
 
-  products:any[] = [
-    {name:'Laptop'},
-    {name:'TV'},
-    {name:'Mobile'},
-    {name:'Washing Machine'},
-    {name:'Sound Box'},
-    {name:'Air Phone'},
-  
+  ngOnInit(): void {
+
+    // use normal scroll event use jquery:-- 
+    let data = 0;
+    $(window).scroll(() => {
+      data++;
+      console.log(`${data} is an local!`);
+    });
+
+  }
+
+  isStatusOnline: boolean = true;
+  isStatusOffline: boolean = false;
+
+  products: any[] = [
+    { name: 'Laptop' },
+    { name: 'TV' },
+    { name: 'Mobile' },
+    { name: 'Washing Machine' },
+    { name: 'Sound Box' },
+    { name: 'Air Phone' },
+
   ]
 
 }

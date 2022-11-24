@@ -48,6 +48,7 @@ import { ChildViewComponent } from './view-child/child-view/child-view.component
 import { ChildView2Component } from './view-child/child-view2/child-view2.component';
 import { MyDirectiveDirective } from './Directive/my-directive.directive';
 import { ViewChild3Component } from './view-child/view-child3/view-child3.component';
+import { HostListenDirective } from './Directive/host-listen.directive';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -130,7 +131,8 @@ const appRoute: Routes = [
     ChildViewComponent,
     ChildView2Component,
     MyDirectiveDirective,
-    ViewChild3Component
+    ViewChild3Component,
+    HostListenDirective
   ],
   imports: [
     BrowserModule,
