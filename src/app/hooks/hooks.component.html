@@ -1,4 +1,4 @@
-<div class="container p-5 text-center bg-warning">
+<div class="container p-5 text-center bg-warning" appBindHost>
   <h1>Hooks In Angular</h1>
   <br />
   <div class="d-flex align-items-center justify-content-between w-50 mx-auto">
@@ -23,5 +23,32 @@
   <br />
   <br />
 
-  <button (click)="onDestroy()" class="btn btn-danger px-5">Destroy Component</button>
+  <button (click)="onDestroy()" class="btn btn-danger px-5">
+    Destroy Component
+  </button>
+  <br />
+  <br />
+  <br />
+
+  <div class="drop">
+    <div class="myContent" appDropDirective>
+      <span>My Drop Down</span>
+    </div>
+    <div class="dorp-down-item">
+      <a href="#">Item 1</a>
+      <a href="#">Item 2</a>
+      <a href="#">Item 3</a>
+      <a href="#">Item 4</a>
+      <a href="#">Item 5</a>
+    </div>
+  </div>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
 </div>

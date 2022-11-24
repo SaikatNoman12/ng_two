@@ -12,6 +12,8 @@ export class HooksComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
   inData: string = 'Jhone Deo';
 
   onDataAdd(ref: any) {
