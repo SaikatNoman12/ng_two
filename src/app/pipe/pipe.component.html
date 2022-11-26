@@ -19,27 +19,88 @@
     </h4>
     <br />
     <h4>
-      Decimal: <strong class="text-light">{{ decimalPipe | number: "1.0-0" }}</strong>
+      Decimal:
+      <strong class="text-light">{{ decimalPipe | number: "1.0-0" }}</strong>
     </h4>
     <br />
     <h4>
-      Multiple Pipe Date: <strong class="text-light">{{ dataDate | date | uppercase }}</strong>
+      Multiple Pipe Date:
+      <strong class="text-light">{{ dataDate | date | uppercase }}</strong>
     </h4>
     <br />
     <h4>
-      Short Date: <strong class="text-light">{{ dataDate | date: "short" }}</strong>
+      Short Date:
+      <strong class="text-light">{{ dataDate | date: "short" }}</strong>
     </h4>
     <br />
     <h4>
-      Medium Date: <strong class="text-light">{{ dataDate | date: "medium" }}</strong>
+      Medium Date:
+      <strong class="text-light">{{ dataDate | date: "medium" }}</strong>
     </h4>
     <br />
     <h4>
-      Long Date: <strong class="text-light">{{ dataDate | date: "long" }}</strong>
+      Long Date:
+      <strong class="text-light">{{ dataDate | date: "long" }}</strong>
     </h4>
     <br />
     <h4>
-      Short Date: <strong class="text-light">{{ dataDate | date: "shortDate" }}</strong>
+      Short Date:
+      <strong class="text-light">{{ dataDate | date: "shortDate" }}</strong>
     </h4>
+
+    <br />
+    <br />
+
+    <div>
+      <h4>
+        Custom Pipe Testing:
+        <strong class="text-light">{{ "noman" | customPipe }}</strong>
+      </h4>
+
+      <h4>
+        My Pipe Testing:
+        <strong class="text-light">{{ "Abdullah Al Nomaan" | myPipe }}</strong>
+      </h4>
+
+      <h4>
+        My Pipe Testing:
+        <strong class="text-light">{{
+          "Abdullah Al Nomaan" | conditionPipe
+        }}</strong>
+      </h4>
+
+      <br />
+      <br />
+      <br />
+
+      <div class="bg-light rounded border p-3">
+        <ng-container *ngFor="let name of namesArr">
+          <h3>
+            My name is
+            <strong class="text-primary">{{
+              name.name | conditionPipe
+            }}</strong>
+          </h3>
+        </ng-container>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="bg-light rounded border p-3">
+        <ng-container *ngFor="let name of namesArr">
+          <h3>
+            My name is
+            <strong class="text-primary">{{
+              name.name | conditionPipeParam: 12
+            }}</strong>
+          </h3>
+        </ng-container>
+      </div>
+
+      <br />
+      <br />
+      <br />
+    </div>
   </div>
 </div>

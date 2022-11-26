@@ -13,11 +13,21 @@ export class PipeComponent implements OnInit {
 
   decimalPipe: number = 3.6;
 
-  dataDate:any = new Date();
+  dataDate: any = new Date();
 
-    constructor() { }
+  constructor() { }
 
-ngOnInit(): void {
-}
+  ngOnInit(): void {
+
+  }
+
+  namesArr:any[] = [
+    {name:'Rahim Khan Don'},
+    {name:'Mahin Khan'},
+    {name:'Hossen Johone'},
+    {name:'Khan Mia'},
+    {name:'Hasnat'},
+    {name:'Mahir'},
+  ]
 
 }

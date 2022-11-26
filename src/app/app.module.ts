@@ -1,3 +1,4 @@
+import { CustomPipePipe } from './appPipe/customPipe.pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { MyServiceService } from './service/my-service.service';
 import { NewServiceService } from './service/new-service.service';
@@ -52,6 +53,9 @@ import { HostListenDirective } from './Directive/host-listen.directive';
 import { BindHostDirective } from './Directive/bind-host.directive';
 import { DropDirectiveDirective } from './Directive/drop-directive.directive';
 import { PipeComponent } from './pipe/pipe.component';
+import { MyPipePipe } from './appPipe/my-pipe.pipe';
+import { ConditionPipePipe } from './appPipe/condition-pipe.pipe';
+import { ConditionPipeParamPipe } from './appPipe/condition-pipe-param.pipe';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -139,13 +143,17 @@ const appRoute: Routes = [
     HostListenDirective,
     BindHostDirective,
     DropDirectiveDirective,
-    PipeComponent
+    PipeComponent,
+    CustomPipePipe,
+    MyPipePipe,
+    ConditionPipePipe,
+    ConditionPipeParamPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     CardServicesService,
