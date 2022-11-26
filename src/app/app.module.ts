@@ -56,6 +56,9 @@ import { PipeComponent } from './pipe/pipe.component';
 import { MyPipePipe } from './appPipe/my-pipe.pipe';
 import { ConditionPipePipe } from './appPipe/condition-pipe.pipe';
 import { ConditionPipeParamPipe } from './appPipe/condition-pipe-param.pipe';
+import { FilterPipePipe } from './appPipe/filter-pipe.pipe';
+import { FilterPipeComponent } from './filter-pipe/filter-pipe.component';
+import { FormsModule } from '@angular/forms';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -68,6 +71,7 @@ const appRoute: Routes = [
   { path: 'hooks', component: HooksComponent },
   { path: 'viewChild', component: ViewChildComponent },
   { path: 'pipe', component: PipeComponent },
+  { path: 'filter-pipe', component: FilterPipeComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -147,13 +151,17 @@ const appRoute: Routes = [
     CustomPipePipe,
     MyPipePipe,
     ConditionPipePipe,
-    ConditionPipeParamPipe
+    ConditionPipeParamPipe,
+    FilterPipePipe,
+    FilterPipeComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
     HttpClientModule,
+    FormsModule
   ],
   providers: [
     CardServicesService,

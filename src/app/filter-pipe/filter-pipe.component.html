@@ -1,0 +1,51 @@
+<div class="container border bg-primary p-5 border text-center">
+  <h1>Filter Pipe</h1>
+  <br />
+
+  <div class="search mb-5">
+    <input
+      type="search"
+      class="form-control w-50 mx-auto"
+      placeholder="Search product..."
+      [(ngModel)]="inputData"
+    />
+  </div>
+
+  <table class="table table-light rounded" style="overflow: hidden">
+    <thead class="table-dark h4">
+      <tr>
+        <th>SL</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Available</th>
+      </tr>
+    </thead>
+    <tbody class="h5">
+      <ng-container
+        *ngFor="let pro of products | filterPipe: inputData; index as i"
+      >
+        <tr>
+          <td>{{ i + 1 }}.</td>
+          <td class="w-50">{{ pro.name }}</td>
+          <td>{{ pro.price }}</td>
+          <ng-container>
+            <td *ngIf="pro.nA.toLowerCase() === 'available'">
+              <span class="badge bg-success w-50 py-2">{{ pro.nA }}</span>
+            </td>
+            <td *ngIf="pro.nA.toLowerCase() === 'not available'">
+              <span class="badge bg-danger w-50 py-2">{{ pro.nA }}</span>
+            </td>
+            <td
+              *ngIf="
+                pro.nA.toLowerCase() !== 'not available' &&
+                pro.nA.toLowerCase() !== 'available'
+              "
+            >
+              <span class="badge bg-warning w-50 py-2">{{ pro.nA }}</span>
+            </td>
+          </ng-container>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
