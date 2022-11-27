@@ -3,34 +3,56 @@
   <br />
 
   <form
-    class="text-start w-25 mx-auto"
+    class="text-start w-75 mx-auto border rounded p-3"
     (ngSubmit)="onSubmitForm(refer)"
     #refer="ngForm"
   >
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input
-        type="text"
-        class="form-control"
-        id="exampleInputEmail1"
-        placeholder="Username..."
-        name="username"
-        ngModel
-      />
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input
-        type="email"
-        class="form-control"
-        id="exampleInputPassword1"
-        placeholder="Email..."
-        name="email"
-        ngModel
-      />
+    <div ngModelGroup="userDetails" #userDetails="ngModelGroup">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Email address</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          placeholder="Username..."
+          name="username"
+          required
+          #userName="ngModel"
+          [(ngModel)]="showData"
+          [ngModel]="showDefaultData"
+        />
+        <small *ngIf="!userName.valid && userName.touched" class="text-danger"
+          >Please enter your email.</small
+        >
+        <small *ngIf="showData" class="text=primary"
+          >username is {{ showData }}
+        </small>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Password</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputPassword1"
+          placeholder="Email..."
+          name="email"
+          ngModel
+          required
+          email
+          #email="ngModel"
+        />
+        <small class="text-danger" *ngIf="!email.valid && email.touched"
+          >Please enter email.</small
+        >
+      </div>
+      <small
+        *ngIf="!userDetails.valid && userDetails.touched"
+        class="text-danger"
+        >Please fill all data!</small
+      >
     </div>
     <div class="mb-3 form-check ps-0">
-      <select class="form-control" name="course" ngModel>
+      <select class="form-control" name="course" [ngModel]="mySelect">
         <option value="" selected hidden>Select</option>
         <option value="HTML">HTML</option>
         <option value="CSS">CSS</option>
@@ -38,6 +60,54 @@
         <option value="Angular">Angular</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <div class="checkbox mb-3 d-flex align-items-center">
+      <div class="form-check me-2" *ngFor="let gender of genders">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="gander"
+          id="{{ gender.id }}"
+          value="{{ gender.value }}"
+          [ngModel]="defaultGender"
+        />
+        <label class="form-check-label" for="{{ gender.id }}">
+          {{ gender.value }}
+        </label>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!refer.valid">
+      Submit
+    </button>
   </form>
+
+  <br>
+  <div class="text-center">
+    &nbsp;&nbsp;
+    <button type="submit" class="btn btn-success" (click)="onUpdate()">
+      Set Default
+    </button>
+    &nbsp;&nbsp;
+    <button class="btn btn-success" (click)="updateUserName()">
+      Update Username
+    </button>
+  </div>
+
+  <div
+    class="w-75 rounded border shadow p-3 mx-auto mt-4 text-start"
+    *ngIf="showFormData"
+  >
+    <h4>
+      Username: <strong class="text-success">{{ onFormData.uname }}</strong>
+    </h4>
+    <h4>
+      Email: <strong class="text-success">{{ onFormData.email }}</strong>
+    </h4>
+    <h4>
+      Course: <strong class="text-success">{{ onFormData.course }}</strong>
+    </h4>
+    <h4>
+      Gender: <strong class="text-success">{{ onFormData.gender }}</strong>
+    </h4>
+  </div>
 </div>
