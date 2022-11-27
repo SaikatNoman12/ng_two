@@ -59,6 +59,7 @@ import { ConditionPipeParamPipe } from './appPipe/condition-pipe-param.pipe';
 import { FilterPipePipe } from './appPipe/filter-pipe.pipe';
 import { FilterPipeComponent } from './filter-pipe/filter-pipe.component';
 import { FormsModule } from '@angular/forms';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -72,6 +73,7 @@ const appRoute: Routes = [
   { path: 'viewChild', component: ViewChildComponent },
   { path: 'pipe', component: PipeComponent },
   { path: 'filter-pipe', component: FilterPipeComponent },
+  { path: 'template=driven-form', component: TemplateDrivenFormComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -154,6 +156,7 @@ const appRoute: Routes = [
     ConditionPipeParamPipe,
     FilterPipePipe,
     FilterPipeComponent,
+    TemplateDrivenFormComponent,
     
   ],
   imports: [

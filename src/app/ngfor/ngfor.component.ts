@@ -30,22 +30,32 @@ export class NGFORComponent implements OnInit {
       this.disNone = 'display:block;';  // this use for style binding;
     } 
     */
-    else if (this.arr.length !== -1) {
+    else if (this.arr.length === 0) {
       this.addClass = true;
     }
     else if (this.arr.length > 2) {
       this.router.navigate(['products']);
+      return;
     }
+
     this.arr.push({
       name: input.value
     });
-
   }
 
 
   removeBtn(index: number) {
-    this.arr.splice(index, 1);
+
+    if (this.arr.length > 0) {
+      this.arr.splice(index, 1);
+    }
+
+    if(this.arr.length === 0){
+      this.addClass = false;
+    }
+
   }
+
 
 
 }

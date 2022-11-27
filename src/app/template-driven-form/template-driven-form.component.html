@@ -1,0 +1,43 @@
+<div class="container p-5 border text-center">
+  <h1>Template Driven Form</h1>
+  <br />
+
+  <form
+    class="text-start w-25 mx-auto"
+    (ngSubmit)="onSubmitForm(refer)"
+    #refer="ngForm"
+  >
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="exampleInputEmail1"
+        placeholder="Username..."
+        name="username"
+        ngModel
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="email"
+        class="form-control"
+        id="exampleInputPassword1"
+        placeholder="Email..."
+        name="email"
+        ngModel
+      />
+    </div>
+    <div class="mb-3 form-check ps-0">
+      <select class="form-control" name="course" ngModel>
+        <option value="" selected hidden>Select</option>
+        <option value="HTML">HTML</option>
+        <option value="CSS">CSS</option>
+        <option value="JavaScript">JavaScript</option>
+        <option value="Angular">Angular</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

@@ -21,12 +21,14 @@ export class BindHostDirective {
   //   this.myClass = true;
   // }
 
-  @HostListener('mouseover') mouseOut() {
+  @HostListener('mouseover') mouseover() {
     this.myColor = 'green';
+    this.myClass = true;
   }
-
+  
   @HostListener('mouseout') mouseout() {
     this.myColor = 'red';
+    this.myClass = false; 
   }
 
   @HostBinding('attr.title') myAttr: any;
