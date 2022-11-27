@@ -59,4 +59,22 @@ export class FilterPipeComponent implements OnInit {
     },
   ];
 
+
+  rand: any;
+
+  addData(refer: any) {
+
+    if (refer.value === '' || refer.value.trim() === '') {
+      return alert('Please write add data name.');
+    }
+
+    this.rand = Math.floor((Math.random() + 1) * 10000);
+
+    this.products.push({
+      name: refer.value,
+      price: `${this.rand}tk`,
+      nA: `${this.rand > 15000 ? 'Available' : this.rand > 14000 ? 'Not Available' : 'Delivered'}`
+    });
+  }
+
 }

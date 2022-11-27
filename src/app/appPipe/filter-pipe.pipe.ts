@@ -3,7 +3,8 @@ import { enableDebugTools } from '@angular/platform-browser';
 import { retry } from 'rxjs';
 
 @Pipe({
-  name: 'filterPipe'
+  name: 'filterPipe',
+  pure: false
 })
 export class FilterPipePipe implements PipeTransform {
 

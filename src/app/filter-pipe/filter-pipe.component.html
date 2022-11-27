@@ -3,6 +3,18 @@
   <br />
 
   <div class="search mb-5">
+    <div class="d-flex align-items-center w-25 mx-auto">
+      <input
+        class="form-control d-inline"
+        type="text"
+        placeholder="add new..."
+        #refer
+      />
+      <button class="btn btn-success px-4 ms-2" (click)="addData(refer)">add</button>
+    </div>
+
+    <br />
+
     <input
       type="search"
       class="form-control w-50 mx-auto"
