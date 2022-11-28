@@ -53,7 +53,7 @@ export class TemplateDrivenFormComponent implements OnInit {
       course: '',
       gander: ''
     });
-    
+
     this.showFormData = false;
   }
 
@@ -66,6 +66,69 @@ export class TemplateDrivenFormComponent implements OnInit {
 
     this.showFormData = false;
   }
+
+
+
+
+
+
+  @ViewChild('referData') myNewForm!: NgForm;
+
+  defaultUname: string = '';
+  defaultEmail: string = '';
+  defaultSelect: string = 'Angular';
+  defaultCheck: string = 'Male';
+
+  gendersData: any[] = [
+    { id: '4', value: 'Male' },
+    { id: '5', value: 'Female' },
+    { id: '6', value: 'Both' },
+  ]
+
+  myFormData2:any = {
+    uname:'',
+    email:'',
+    course:'',
+    gender:''
+  }
+
+  showUserDetails2:boolean = false;
+
+  onSubmitFormData(refer: NgForm) {
+    this.myFormData2.uname = refer.value.userDetailsData.username;
+    this.myFormData2.email = refer.value.userDetailsData.email;
+    this.myFormData2.course = refer.value.course;
+    this.myFormData2.gender = refer.value.gendersData;
+
+    this.showUserDetails2 = true;
+  }
+  
+
+  setDefaultValue2() {
+    this.myNewForm.setValue({
+      userDetailsData: {
+        username: 'Rabii Amjad',
+        email: ''
+      },
+      course: '',
+      gendersData: ''
+    });
+    this.showUserDetails2 = false;
+  }
+  
+  setPatchValue2() {
+    this.myNewForm.form.patchValue({
+      userDetailsData: {
+        username: 'Karim Banjema'
+      }
+    });
+    this.showUserDetails2 = false;
+  }
+
+
+
+
+
 
 
 

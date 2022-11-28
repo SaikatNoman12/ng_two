@@ -1,10 +1,19 @@
-input.ng-invalid.ng-touched{
-    border: 1px solid red;
-    box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.437);
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.437);
 }
 
+select.ng-pristine.ng-touched {
+  border: 1px solid red;
+  box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.437);
+}
 
-select.ng-pristine.ng-touched{
-    border: 1px solid red;
-    box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.437);
+.secondForm input.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.337);
+}
+
+.secondForm select.ng-invalid.ng-touched {
+  border: 1px solid red;
+  box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.337);
 }
