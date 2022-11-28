@@ -58,8 +58,9 @@ import { ConditionPipePipe } from './appPipe/condition-pipe.pipe';
 import { ConditionPipeParamPipe } from './appPipe/condition-pipe-param.pipe';
 import { FilterPipePipe } from './appPipe/filter-pipe.pipe';
 import { FilterPipeComponent } from './filter-pipe/filter-pipe.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
+import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -74,6 +75,7 @@ const appRoute: Routes = [
   { path: 'pipe', component: PipeComponent },
   { path: 'filter-pipe', component: FilterPipeComponent },
   { path: 'template=driven-form', component: TemplateDrivenFormComponent },
+  { path: 'reactive-form', component: ReactiveFormComponent },
   {
     path: 'about', component: AboutComponent, children: [
       { path: 'king-car', component: KingCarComponent },
@@ -157,6 +159,7 @@ const appRoute: Routes = [
     FilterPipePipe,
     FilterPipeComponent,
     TemplateDrivenFormComponent,
+    ReactiveFormComponent,
     
   ],
   imports: [
@@ -164,7 +167,8 @@ const appRoute: Routes = [
     AppRoutingModule,
     RouterModule.forRoot(appRoute),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     CardServicesService,

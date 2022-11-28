@@ -1,0 +1,83 @@
+<div class="container border p-5 text-center">
+  <h1>Reactive Form</h1>
+
+  <br />
+  <br />
+
+  <form
+    class="w-50 rounded shadow text-start p-3 mx-auto bg-light"
+    [formGroup]="myRecForm"
+    (ngSubmit)="myFormSubmit()"
+    #refer
+  >
+    <div class="goruping" formGroupName="userDetails">
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          id="exampleInputEmail1"
+          aria-describedby="emailHelp"
+          formControlName="username"
+          placeholder="Enter username"
+        />
+        <small
+          class="text-danger"
+          *ngIf="
+            !myRecForm.get('userDetails.username')?.valid &&
+            myRecForm.get('userDetails.username')?.touched
+          "
+          >Please enter your username</small
+        >
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputPassword1"
+          formControlName="email"
+          placeholder="Enter email"
+        />
+        <small
+          *ngIf="
+            !myRecForm.get('userDetails.email')?.valid && myRecForm.get('userDetails.email')?.touched
+          "
+          class="text-danger"
+          >Please enter your email!</small
+        >
+      </div>
+    </div>
+
+    <div class="selector">
+      <label for="select">Select course</label>
+      <select name="" id="select" class="form-control" formControlName="course">
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+        <option value="javascript">JAVASCRIPT</option>
+        <option value="angular">ANGULAR</option>
+      </select>
+    </div>
+    <br />
+    <div class="form-checkbox">
+      <div class="form-check" *ngFor="let radioData of radioBtn">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="{{ radioData.id }}"
+          value="{{ radioData.value }}"
+          formControlName="gender"
+        />
+        <label class="form-check-label" for="{{ radioData.id }}">
+          {{ radioData.value }}
+        </label>
+      </div>
+    </div>
+    <br />
+
+    <!-- *ngIf="myRecForm.valid" -->
+    <button [disabled]="!myRecForm.valid" type="submit" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>
