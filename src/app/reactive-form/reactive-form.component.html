@@ -40,7 +40,8 @@
         />
         <small
           *ngIf="
-            !myRecForm.get('userDetails.email')?.valid && myRecForm.get('userDetails.email')?.touched
+            !myRecForm.get('userDetails.email')?.valid &&
+            myRecForm.get('userDetails.email')?.touched
           "
           class="text-danger"
           >Please enter your email!</small
@@ -51,6 +52,7 @@
     <div class="selector">
       <label for="select">Select course</label>
       <select name="" id="select" class="form-control" formControlName="course">
+        <option value="select" selected hidden>Select</option>
         <option value="html">HTML</option>
         <option value="css">CSS</option>
         <option value="javascript">JAVASCRIPT</option>
@@ -72,6 +74,32 @@
         </label>
       </div>
     </div>
+    <br />
+
+    <div class="form-checkbox">
+      <div class="mb-3" formArrayName="skills">
+        <label class="form-label"> Skills </label>
+
+        <ng-container *ngFor="let arrData of skills.controls; index as i">
+          <input
+            class="form-control mb-2"
+            type="text"
+            placeholder="Skill {{ i + 1 }}"
+            [formControlName]="i"
+          />
+        </ng-container>
+      </div>
+
+      <button
+        class="btn btn-success btn-sm"
+        type="button"
+        [disabled]="!skills.valid"
+        (click)="onAddData()"
+      >
+        Add Skill
+      </button>
+    </div>
+
     <br />
 
     <!-- *ngIf="myRecForm.valid" -->
