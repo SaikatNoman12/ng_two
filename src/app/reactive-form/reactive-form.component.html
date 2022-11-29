@@ -46,7 +46,12 @@
             myRecForm.get('userDetails.email')?.touched
           "
           class="text-danger"
-          >Please enter your email!</small
+          >
+          <span *ngIf="myRecForm.get('userDetails.email')?.errors?.['required']"
+          >Please enter your email!</span>
+          <span *ngIf="myRecForm.get('userDetails.email')?.errors?.['email-valid']"
+          >{{myRecForm.get('userDetails.email')?.value}} is not allow</span>
+          </small
         >
       </div>
     </div>

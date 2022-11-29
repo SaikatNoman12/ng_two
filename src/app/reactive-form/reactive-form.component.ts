@@ -36,7 +36,7 @@ export class ReactiveFormComponent implements OnInit {
 
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.userNameValidate.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email])
+        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidateMethod.bind(this)])
       }),
       'course': new FormControl('select', Validators.required),
       'gender': new FormControl('Male', Validators.required),
@@ -48,7 +48,7 @@ export class ReactiveFormComponent implements OnInit {
 
   userNameValidate(control: FormControl) {
     if (this.nameValidator.indexOf(control.value?.toLowerCase()) !== -1) {
-      return {'name_validate':true}
+      return { 'name_validate': true }
     }
     return null;
   }
@@ -68,6 +68,15 @@ export class ReactiveFormComponent implements OnInit {
   }
 
 
+
+  emailValidate: any[] = ['abc@abc', 'noman@noman'];
+
+  emailValidateMethod(control: FormControl) {
+    if (this.emailValidate.indexOf(control.value) !== -1) {
+      return { 'email-valid': true };
+    }
+    return null;
+  }
 
 
 }
