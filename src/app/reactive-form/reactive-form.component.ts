@@ -46,10 +46,20 @@ export class ReactiveFormComponent implements OnInit {
         new FormControl(null, Validators.required),
       ])
     });
+
+
+    // valueChanges:-
+    this.myRecForm.valueChanges.subscribe((value: any) => {
+      console.log(value);
+    })
+
   }
 
-  asyncValidatorsRecForm(control: AbstractControl): Promise<ValidationErrors | null | any> | Observable<any> {
+  asyncValidatorsRecForm(control: AbstractControl):
+    Promise<ValidationErrors | null | any> | Observable<any> {
+
     const response = new Promise<any>((resolve, reject) => {
+
       setTimeout(() => {
         if (control.value === 'kkk@gmail.com') {
           resolve({ 'emailNotAllowed': true });
@@ -57,7 +67,8 @@ export class ReactiveFormComponent implements OnInit {
         else {
           resolve(null);
         }
-      }, 1500);
+      }, 5000);
+
     });
 
     return response;
