@@ -29,6 +29,8 @@ export class ReactiveFormComponent implements OnInit {
 
   myRecForm!: FormGroup;
 
+  myStatus:any;
+
   nameValidator: any[] = ['noman', 'jasim'];
 
   ngOnInit(): void {
@@ -49,8 +51,18 @@ export class ReactiveFormComponent implements OnInit {
 
 
     // valueChanges:-
+    /* 
     this.myRecForm.valueChanges.subscribe((value: any) => {
       console.log(value);
+    }); 
+    */
+
+    // statusChanges:-
+    this.myRecForm.statusChanges.subscribe((status:any) => {
+      console.log(status);
+
+      this.myStatus = status;
+
     })
 
   }

@@ -5,9 +5,10 @@
   <br />
 
   <form
-    class="w-50 rounded shadow text-start p-3 mx-auto bg-light"
+    class="w-50 rounded shadow text-start p-3 mx-auto bg-light myReactiveForme"
     [formGroup]="myRecForm"
     (ngSubmit)="myFormSubmit()"
+    [ngClass]="myStatus"
   >
     <div class="goruping" formGroupName="userDetails">
       <div class="mb-3">
