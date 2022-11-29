@@ -29,7 +29,7 @@ export class ReactiveFormComponent implements OnInit {
 
   myRecForm!: FormGroup;
 
-  myStatus:any;
+  myStatus: any;
 
   nameValidator: any[] = ['noman', 'jasim'];
 
@@ -58,12 +58,27 @@ export class ReactiveFormComponent implements OnInit {
     */
 
     // statusChanges:-
-    this.myRecForm.statusChanges.subscribe((status:any) => {
+    this.myRecForm.statusChanges.subscribe((status: any) => {
       console.log(status);
 
       this.myStatus = status;
 
-    })
+    });
+
+    setTimeout(() => {
+      this.myRecForm.setValue({
+        'userDetails': {
+          'username': '',
+          'email': '',
+          'verified-email': ''
+        },
+        'course': 'angular',
+        'gender': 'Male',
+        'skills': [
+          'JavaScript'
+        ]
+      });
+    }, 4000);
 
   }
 
