@@ -26,8 +26,10 @@
             !myRecForm.get('userDetails.username')?.valid &&
             myRecForm.get('userDetails.username')?.touched
           "
-          >Please enter your username</small
         >
+          <span *ngIf="myRecForm.get('userDetails.username')?.errors?.['required']">Please enter your username!</span>
+          <span *ngIf="myRecForm.get('userDetails.username')?.errors?.['name_validate']">{{myRecForm.get('userDetails.username')?.value}} is not allowed!</span>
+        </small>
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Email</label>

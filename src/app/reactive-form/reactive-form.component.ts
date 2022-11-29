@@ -28,12 +28,14 @@ export class ReactiveFormComponent implements OnInit {
 
   myRecForm!: FormGroup;
 
+  nameValidator: any[] = ['noman', 'jasim'];
+
   ngOnInit(): void {
 
     this.myRecForm = new FormGroup({
 
       'userDetails': new FormGroup({
-        'username': new FormControl(null, Validators.required),
+        'username': new FormControl(null, [Validators.required, this.userNameValidate.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email])
       }),
       'course': new FormControl('select', Validators.required),
@@ -44,7 +46,14 @@ export class ReactiveFormComponent implements OnInit {
     });
   }
 
-  get skills(){
+  userNameValidate(control: FormControl) {
+    if (this.nameValidator.indexOf(control.value?.toLowerCase()) !== -1) {
+      return {'name_validate':true}
+    }
+    return null;
+  }
+
+  get skills() {
     return this.myRecForm.controls['skills'] as FormArray;
   }
 
@@ -53,13 +62,11 @@ export class ReactiveFormComponent implements OnInit {
     console.log(this.myRecForm);
   }
 
-  onAddData(){
-
+  onAddData() {
     const control = new FormControl(null, Validators.required);
-
     (<FormArray>this.myRecForm.get('skills')).push(control);
-
   }
+
 
 
 
