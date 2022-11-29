@@ -42,6 +42,21 @@ export class TemplateDrivenFormComponent implements OnInit {
     this.onFormData.course = this.myForm.value.course;
     this.onFormData.gender = this.myForm.value.gander;
     this.showFormData = true;
+
+    // only reset:-
+    /*
+    this.myForm.reset(); 
+    */
+
+    // rest set value:-
+    this.myForm.reset({
+      'userDetails': {
+        'username': 'Rahim Khana'
+      },
+      'gender': 'Male',
+      'course': 'Angular'
+    })
+
   }
 
   onUpdate() {
@@ -51,7 +66,7 @@ export class TemplateDrivenFormComponent implements OnInit {
         email: ''
       },
       course: '',
-      gander: ''
+      gander: 'Male'
     });
 
     this.showFormData = false;
@@ -85,14 +100,14 @@ export class TemplateDrivenFormComponent implements OnInit {
     { id: '6', value: 'Both' },
   ]
 
-  myFormData2:any = {
-    uname:'',
-    email:'',
-    course:'',
-    gender:''
+  myFormData2: any = {
+    uname: '',
+    email: '',
+    course: '',
+    gender: ''
   }
 
-  showUserDetails2:boolean = false;
+  showUserDetails2: boolean = false;
 
   onSubmitFormData(refer: NgForm) {
     this.myFormData2.uname = refer.value.userDetailsData.username;
@@ -101,8 +116,22 @@ export class TemplateDrivenFormComponent implements OnInit {
     this.myFormData2.gender = refer.value.gendersData;
 
     this.showUserDetails2 = true;
+
+    // only reset:-
+    /*
+    this.myForm.reset(); 
+    */
+
+    // rest set value:-
+    this.myForm.reset({
+      'userDetails': {
+        'username': 'Rahim Khana'
+      },
+      'gender': 'Male',
+      'course': 'Angular'
+    })
   }
-  
+
 
   setDefaultValue2() {
     this.myNewForm.setValue({
@@ -115,7 +144,7 @@ export class TemplateDrivenFormComponent implements OnInit {
     });
     this.showUserDetails2 = false;
   }
-  
+
   setPatchValue2() {
     this.myNewForm.form.patchValue({
       userDetailsData: {

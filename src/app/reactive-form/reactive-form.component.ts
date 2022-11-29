@@ -59,10 +59,7 @@ export class ReactiveFormComponent implements OnInit {
 
     // statusChanges:-
     this.myRecForm.statusChanges.subscribe((status: any) => {
-      console.log(status);
-
       this.myStatus = status;
-
     });
 
     // setValue:-
@@ -91,7 +88,10 @@ export class ReactiveFormComponent implements OnInit {
           'username': 'Rahim',
           'verified-email':'kkl@com'
         },
-        'course': 'angular'
+        'course': 'angular',
+        'skills':[
+          'javaScript'
+        ]
       })
     }, 2000);
 
@@ -132,6 +132,23 @@ export class ReactiveFormComponent implements OnInit {
 
   myFormSubmit() {
     console.log(this.myRecForm);
+
+    
+    // use for reset:--
+    /* 
+    this.myRecForm.reset(); 
+    */
+
+    // use for reset adn set value:--
+    this.myRecForm.reset({
+      'userDetails':{
+
+      },
+
+      'course':'select',
+      'gender':'Male'
+    })
+
   }
 
   onAddData() {
