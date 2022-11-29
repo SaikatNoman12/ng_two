@@ -65,20 +65,35 @@ export class ReactiveFormComponent implements OnInit {
 
     });
 
+    // setValue:-
+    /*  
     setTimeout(() => {
-      this.myRecForm.setValue({
+       this.myRecForm.setValue({
+         'userDetails': {
+           'username': '',
+           'email': '',
+           'verified-email': ''
+         },
+         'course': 'angular',
+         'gender': 'Male',
+         'skills': [
+           'JavaScript'
+         ]
+       });
+     }, 4000); 
+     */
+
+    // patchValue:-
+
+    setTimeout(() => {
+      this.myRecForm.patchValue({
         'userDetails': {
-          'username': '',
-          'email': '',
-          'verified-email': ''
+          'username': 'Rahim',
+          'verified-email':'kkl@com'
         },
-        'course': 'angular',
-        'gender': 'Male',
-        'skills': [
-          'JavaScript'
-        ]
-      });
-    }, 4000);
+        'course': 'angular'
+      })
+    }, 2000);
 
   }
 
