@@ -27,8 +27,15 @@
             myRecForm.get('userDetails.username')?.touched
           "
         >
-          <span *ngIf="myRecForm.get('userDetails.username')?.errors?.['required']">Please enter your username!</span>
-          <span *ngIf="myRecForm.get('userDetails.username')?.errors?.['name_validate']">{{myRecForm.get('userDetails.username')?.value}} is not allowed!</span>
+          <span
+            *ngIf="myRecForm.get('userDetails.username')?.errors?.['required']"
+            >Please enter your username!</span
+          >
+          <span
+            *ngIf="myRecForm.get('userDetails.username')?.errors?.['name_validate']"
+            >{{ myRecForm.get("userDetails.username")?.value }} is not
+            allowed!</span
+          >
         </small>
       </div>
       <div class="mb-3">
@@ -46,13 +53,42 @@
             myRecForm.get('userDetails.email')?.touched
           "
           class="text-danger"
-          >
-          <span *ngIf="myRecForm.get('userDetails.email')?.errors?.['required']"
-          >Please enter your email!</span>
-          <span *ngIf="myRecForm.get('userDetails.email')?.errors?.['email-valid']"
-          >{{myRecForm.get('userDetails.email')?.value}} is not allow</span>
-          </small
         >
+          <span *ngIf="myRecForm.get('userDetails.email')?.errors?.['required']"
+            >Please enter your email!</span
+          >
+          <span
+            *ngIf="myRecForm.get('userDetails.email')?.errors?.['email-valid']"
+            >{{ myRecForm.get("userDetails.email")?.value }} is not allow</span
+          >
+        </small>
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword3" class="form-label"
+          >Verified Email</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputPassword3"
+          formControlName="verified-email"
+          placeholder="Enter verified email"
+        />
+        <small 
+        *ngIf="!myRecForm.get('userDetails.verified-email')?.valid && myRecForm.get('userDetails.verified-email')?.touched"
+        class="text-danger"> 
+        <small
+          *ngIf="myRecForm.get('userDetails.verified-email')?.errors?.['required']"
+        >Please enter your email </small>
+
+
+        <small
+          *ngIf="myRecForm.get('userDetails.verified-email')?.errors?.['emailNotAllowed']"
+        >
+          {{myRecForm.get('userDetails.verified-email')?.value}} is not allowed!
+        </small>
+      </small>
       </div>
     </div>
 

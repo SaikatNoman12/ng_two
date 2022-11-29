@@ -1,5 +1,6 @@
+import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
-import { EmailValidator, Form, FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, EmailValidator, Form, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -36,7 +37,8 @@ export class ReactiveFormComponent implements OnInit {
 
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.userNameValidate.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidateMethod.bind(this)])
+        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidateMethod.bind(this)]),
+        'verified-email': new FormControl(null, [Validators.required, Validators.email], [this.asyncValidatorsRecForm])
       }),
       'course': new FormControl('select', Validators.required),
       'gender': new FormControl('Male', Validators.required),
@@ -45,6 +47,23 @@ export class ReactiveFormComponent implements OnInit {
       ])
     });
   }
+
+  asyncValidatorsRecForm(control: AbstractControl): Promise<ValidationErrors | null | any> | Observable<any> {
+    const response = new Promise<any>((resolve, reject) => {
+      setTimeout(() => {
+        if (control.value === 'kkk@gmail.com') {
+          resolve({ 'emailNotAllowed': true });
+        }
+        else {
+          resolve(null);
+        }
+      }, 1500);
+    });
+
+    return response;
+  }
+
+
 
   userNameValidate(control: FormControl) {
     if (this.nameValidator.indexOf(control.value?.toLowerCase()) !== -1) {
@@ -77,6 +96,7 @@ export class ReactiveFormComponent implements OnInit {
     }
     return null;
   }
+
 
 
 }
