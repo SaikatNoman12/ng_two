@@ -61,6 +61,7 @@ import { FilterPipeComponent } from './filter-pipe/filter-pipe.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
+import { ReactiveFormPracticeComponent } from './reactive-form/reactive-form-practice/reactive-form-practice.component';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -160,6 +161,7 @@ const appRoute: Routes = [
     FilterPipeComponent,
     TemplateDrivenFormComponent,
     ReactiveFormComponent,
+    ReactiveFormPracticeComponent,
     
   ],
   imports: [
