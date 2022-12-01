@@ -7,3 +7,16 @@ select.ng-pristine.ng-touched {
   border: 1px solid red;
   box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.448);
 }
+
+.myRecForm.INVALID {
+  border: 1px solid rgb(255, 0, 0);
+  box-shadow: inset 0px 0px 10px rgba(255,0, 0, 0.448);
+}
+.myRecForm.PAINDAING {
+  border: 1px solid rgb(255, 255, 0);
+  box-shadow: inset 0px 0px 10px rgba(255, 255, 0, 0.448);
+}
+.myRecForm.VALID {
+  border: 1px solid rgb(26, 255, 0);
+  box-shadow: inset 0px 0px 10px rgba(26, 255, 0, 0.448);
+}

@@ -1,3 +1,4 @@
+import { emailValidator } from 'src/app/Directive/email-validator-directive.directive';
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, EmailValidator, Form, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
@@ -40,7 +41,7 @@ export class ReactiveFormComponent implements OnInit {
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.userNameValidate.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidateMethod.bind(this)]),
-        'verified-email': new FormControl(null, [Validators.required, Validators.email], [this.asyncValidatorsRecForm])
+        'verified-email': new FormControl(null, [Validators.required, Validators.email, emailValidator()], [this.asyncValidatorsRecForm])
       }),
       'course': new FormControl('select', Validators.required),
       'gender': new FormControl('Male', Validators.required),
@@ -115,7 +116,7 @@ export class ReactiveFormComponent implements OnInit {
 
     return response;
   }
-
+ 
 
 
   userNameValidate(control: FormControl) {

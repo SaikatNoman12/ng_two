@@ -2,6 +2,7 @@ import { FormGroup, FormControl, Validators, FormArray, AbstractControl } from '
 import { Component, OnInit } from '@angular/core';
 import { elementAt, Observable } from 'rxjs';
 import { ElementSchemaRegistry } from '@angular/compiler';
+import { emailValidator } from 'src/app/Directive/email-validator-directive.directive';
 
 @Component({
   selector: 'app-reactive-form-practice',
@@ -18,6 +19,8 @@ export class ReactiveFormPracticeComponent implements OnInit {
     { id: '33', genderType: 'Both' },
   ];
 
+  myStatusChanges: any;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -26,7 +29,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.customValidations.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidate.bind(this)]),
-        'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this)], this.asyncValidation)
+        'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this), emailValidator()], this.asyncValidation)
       }),
       'course': new FormControl('select', [Validators.required]),
       'gender': new FormControl('Male', [Validators.required]),
@@ -41,6 +44,24 @@ export class ReactiveFormPracticeComponent implements OnInit {
       console.log(res);
     }); 
     */
+
+    /* // valueChanges:--  
+     this.myReactiveForm.valueChanges.subscribe(res => {
+       console.log(res);
+     }); 
+    */
+
+    /* // valueChanges get any values:--   
+     this.myReactiveForm.get('userDetails.email')?.valueChanges.subscribe(res => {
+       console.log(res);
+     }); 
+    */
+
+    // statusChanges:-
+    this.myReactiveForm.statusChanges.subscribe(status => {
+      this.myStatusChanges = status;
+    });
+
 
   }
 
@@ -147,15 +168,15 @@ export class ReactiveFormPracticeComponent implements OnInit {
   */
 
 
-  asyncValidation(control:AbstractControl):Promise<any> | Observable<any>{
+  asyncValidation(control: AbstractControl): Promise<any> | Observable<any> {
 
     const promData = new Promise((resolve, reject) => {
 
       setTimeout(() => {
-        if(control.value?.toLowerCase() === 'kkk@kkk'){
-          resolve({'verifyEmail':true});
+        if (control.value?.toLowerCase() === 'kkk@kkk') {
+          resolve({ 'verifyEmail': true });
         }
-        else{
+        else {
           resolve(null);
         }
       }, 0);
@@ -166,6 +187,10 @@ export class ReactiveFormPracticeComponent implements OnInit {
 
   }
 
+
+  get verifyEmail() {
+    return this.myReactiveForm.get('userDetails.verify-email')!;
+  }
 
   formDataSubmit(): void {
     console.log(this.myReactiveForm);

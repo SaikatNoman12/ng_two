@@ -62,6 +62,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { ReactiveFormPracticeComponent } from './reactive-form/reactive-form-practice/reactive-form-practice.component';
+import { EmailValidatorDirectiveDirective } from './Directive/email-validator-directive.directive';
 
 const appRoute: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -162,6 +163,7 @@ const appRoute: Routes = [
     TemplateDrivenFormComponent,
     ReactiveFormComponent,
     ReactiveFormPracticeComponent,
+    EmailValidatorDirectiveDirective,
     
   ],
   imports: [

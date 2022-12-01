@@ -9,7 +9,7 @@
 
   <div>
     <form
-      class="text-start w-50 shadow bg-light p-3 mx-auto rounded"
+      class="text-start w-50 shadow bg-light p-3 mx-auto rounded myRecForm"
       [formGroup]="myReactiveForm"
       (ngSubmit)="formDataSubmit()"
     >
@@ -87,14 +87,20 @@
               myReactiveForm.get('userDetails.verify-email')?.touched
             "
             class="text-danger"
+          >
+            <span
+              *ngIf="myReactiveForm.get('userDetails.verify-email')?.errors?.['required']"
+              >Please Enter Verify Email!</span
             >
             <span
-            *ngIf="myReactiveForm.get('userDetails.verify-email')?.errors?.['required']"
-            >Please Enter Verify Email!</span>
-            <span
-            *ngIf="myReactiveForm.get('userDetails.verify-email')?.errors?.['verifyEmail']"
+              *ngIf="!verifyEmail.errors?.['required'] && verifyEmail.errors?.['emailValidator']"
+              >Please Enter valid email!</span
             >
-              {{myReactiveForm.get('userDetails.verify-email')?.value}} is already taken.
+            <span
+              *ngIf="myReactiveForm.get('userDetails.verify-email')?.errors?.['verifyEmail']"
+            >
+              {{ myReactiveForm.get("userDetails.verify-email")?.value }} is
+              already taken.
             </span>
           </small>
         </div>
