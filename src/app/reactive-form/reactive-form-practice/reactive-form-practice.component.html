@@ -70,6 +70,35 @@
           </small>
         </div>
 
+        <div class="mb-3">
+          <label for="exampleInputPassword3" class="form-label"
+            >Verify Email:</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputPassword3"
+            placeholder="Enter verify email..."
+            formControlName="verify-email"
+          />
+          <small
+            *ngIf="
+              !myReactiveForm.get('userDetails.verify-email')?.valid &&
+              myReactiveForm.get('userDetails.verify-email')?.touched
+            "
+            class="text-danger"
+            >
+            <span
+            *ngIf="myReactiveForm.get('userDetails.verify-email')?.errors?.['required']"
+            >Please Enter Verify Email!</span>
+            <span
+            *ngIf="myReactiveForm.get('userDetails.verify-email')?.errors?.['verifyEmail']"
+            >
+              {{myReactiveForm.get('userDetails.verify-email')?.value}} is already taken.
+            </span>
+          </small>
+        </div>
+
         <small
           *ngIf="
             !myReactiveForm.get('userDetails')?.valid &&

@@ -1,6 +1,6 @@
 import { FormGroup, FormControl, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { elementAt, ValueFromArray } from 'rxjs';
+import { elementAt, Observable } from 'rxjs';
 import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
@@ -26,6 +26,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.customValidations.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidate.bind(this)]),
+        'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this)], this.asyncValidation)
       }),
       'course': new FormControl('select', [Validators.required]),
       'gender': new FormControl('Male', [Validators.required]),
@@ -125,7 +126,43 @@ export class ReactiveFormPracticeComponent implements OnInit {
     else {
       return null;
     }
+  }
 
+  /* // Use for verify mail validation:-
+  dataStore: string = '';
+  [attr.disabled]="emailUserData ? null : true"
+  get emailUserData() {
+    let cc = this.myReactiveForm.get('userDetails.email')?.value;
+    if (cc) {
+      this.dataStore = cc;
+    }
+    let findAt = this.dataStore.split('').reverse().find((ele) => ele === '@');
+    if (findAt) {
+      return true;
+    }
+    else {
+      return null;
+    }
+  } 
+  */
+
+
+  asyncValidation(control:AbstractControl):Promise<any> | Observable<any>{
+
+    const promData = new Promise((resolve, reject) => {
+
+      setTimeout(() => {
+        if(control.value?.toLowerCase() === 'kkk@kkk'){
+          resolve({'verifyEmail':true});
+        }
+        else{
+          resolve(null);
+        }
+      }, 0);
+
+    });
+
+    return promData;
 
   }
 
