@@ -30,8 +30,17 @@
               myReactiveForm.get('userDetails.username')?.touched
             "
             class="text-danger"
-            >Please enter your username</small
           >
+            <span
+              *ngIf="myReactiveForm.get('userDetails.username')?.errors?.['required']"
+              >Please enter your username</span
+            >
+            <span
+              *ngIf="myReactiveForm.get('userDetails.username')?.errors?.['myValidation']"
+              >{{ myReactiveForm.get("userDetails.username")?.value }} is
+              already taken!</span
+            >
+          </small>
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword2" class="form-label">Email:</label>
@@ -48,8 +57,17 @@
               myReactiveForm.get('userDetails.email')?.touched
             "
             class="text-danger"
-            >Please enter your email!</small
           >
+            <span
+              *ngIf="myReactiveForm.get('userDetails.email')?.errors?.['required']"
+              >Please enter your email!</span
+            >
+            <span
+              *ngIf="myReactiveForm.get('userDetails.email')?.errors?.['emailNotValid']"
+              >{{ myReactiveForm.get("userDetails.email")?.value }} is already
+              taken!</span
+            >
+          </small>
         </div>
 
         <small

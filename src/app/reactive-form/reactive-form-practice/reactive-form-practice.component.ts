@@ -1,6 +1,7 @@
-import { FormGroup, FormControl, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray, AbstractControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ValueFromArray } from 'rxjs';
+import { elementAt, ValueFromArray } from 'rxjs';
+import { ElementSchemaRegistry } from '@angular/compiler';
 
 @Component({
   selector: 'app-reactive-form-practice',
@@ -23,8 +24,8 @@ export class ReactiveFormPracticeComponent implements OnInit {
 
     this.myReactiveForm = new FormGroup({
       'userDetails': new FormGroup({
-        'username': new FormControl(null, [Validators.required]),
-        'email': new FormControl(null, [Validators.required, Validators.email]),
+        'username': new FormControl(null, [Validators.required, this.customValidations.bind(this)]),
+        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidate.bind(this)]),
       }),
       'course': new FormControl('select', [Validators.required]),
       'gender': new FormControl('Male', [Validators.required]),
@@ -80,6 +81,43 @@ export class ReactiveFormPracticeComponent implements OnInit {
     }
 
   }
+
+
+  names: any[] = ['rahim', 'karim'];
+
+
+
+  customValidations(control: FormControl) {
+
+    if (this.names.indexOf(control.value?.toLowerCase()) !== -1) {
+      return { 'myValidation': true };
+    }
+    else {
+      return null;
+    }
+
+  }
+
+
+  emailValidation: any[] = ['rahim@rahim', 'karim@karim'];
+
+  emailNumAra: any[] = [
+    { id: '1', emaill: 'abc@abc' },
+    { id: '2', emaill: 'bcd@bcd' }
+  ]
+
+  emailValidate(control: FormControl) {
+
+    let arr;
+    for (let i = 0; i < this.emailNumAra.length; i++) {
+      arr = this.emailNumAra[i];
+      if(arr.emaill === control.value?.toLowerCase()){
+        return {'emailNotValid':true}
+      }
+    }
+    return null;
+  }
+
 
   formDataSubmit(): void {
     console.log(this.myReactiveForm);
