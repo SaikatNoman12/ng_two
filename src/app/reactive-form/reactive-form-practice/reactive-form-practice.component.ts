@@ -108,14 +108,25 @@ export class ReactiveFormPracticeComponent implements OnInit {
 
   emailValidate(control: FormControl) {
 
-    let arr;
-    for (let i = 0; i < this.emailNumAra.length; i++) {
-      arr = this.emailNumAra[i];
-      if(arr.emaill === control.value?.toLowerCase()){
-        return {'emailNotValid':true}
-      }
+    // let arr;
+    // for (let i = 0; i < this.emailNumAra.length; i++) {
+    //   arr = this.emailNumAra[i];
+    //   if(arr.emaill === control.value?.toLowerCase()){
+    //     return {'emailNotValid':true}
+    //   }
+    // }
+    // return null;
+
+    const getMail = this.emailNumAra.find(ele => ele.emaill.toLowerCase() === control.value?.toLowerCase());
+
+    if (getMail) {
+      return { 'emailNotValid': true }
     }
-    return null;
+    else {
+      return null;
+    }
+
+
   }
 
 
