@@ -146,7 +146,6 @@ export class ReactiveFormComponent implements OnInit {
     // use for reset adn set value:--
     this.myRecForm.reset({
       'userDetails': {
-
       },
 
       'course': 'select',

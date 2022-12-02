@@ -65,6 +65,23 @@ export class ReactiveFormPracticeComponent implements OnInit {
     });
 
 
+    setTimeout(() => {
+      this.myReactiveForm.setValue({
+        'userDetails': {
+          'username': 'noman',
+          'email': '',
+          'verify-email': 'fff@sdfsdf',
+          'two-step-verification': '',
+        },
+        'course': 'select',
+        'gender': 'Male',
+        'skill': [
+          '',
+        ],
+      })
+    }, 2000);
+
+
   }
 
   get skills() {
@@ -181,7 +198,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
         else {
           resolve(null);
         }
-      }, 0);
+      }, 3000);
 
     });
 

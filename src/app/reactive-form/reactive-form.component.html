@@ -107,7 +107,7 @@
 
       <div class="mb-3">
         <label for="exampleInputPassword4" class="form-label"
-          >Two step verification email</label
+          >Two Step Verification Email</label
         >
         <input
           type="email"
@@ -133,7 +133,8 @@
           *ngIf="!myRecForm.get('userDetails.two-step-verification')?.valid && myRecForm.get('userDetails.two-step-verification')?.touched && myRecForm.get('userDetails.two-step-verification')?.errors?.['email-valid'] && !myRecForm.get('userDetails.two-step-verification')?.errors?.['required']"
           class="text-danger"
         >
-          {{myRecForm.get('userDetails.two-step-verification')?.value}} is already taken
+          {{ myRecForm.get("userDetails.two-step-verification")?.value }} is
+          already taken
         </small>
       </div>
     </div>

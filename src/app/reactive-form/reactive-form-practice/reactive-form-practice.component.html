@@ -12,6 +12,7 @@
       class="text-start w-50 shadow bg-light p-3 mx-auto rounded myRecForm"
       [formGroup]="myReactiveForm"
       (ngSubmit)="formDataSubmit()"
+      [ngClass]="myStatusChanges"
     >
       <div formGroupName="userDetails">
         <div class="mb-3">
@@ -111,7 +112,9 @@
         </div>
 
         <div class="mb-3">
-          <label for="exampleInputPassword2" class="form-label">Two step verification:</label>
+          <label for="exampleInputPassword2" class="form-label"
+            >Two step verification:</label
+          >
           <input
             type="email"
             class="form-control"

@@ -10,13 +10,13 @@ select.ng-pristine.ng-touched {
 
 .myRecForm.INVALID {
   border: 1px solid rgb(255, 0, 0);
-  box-shadow: inset 0px 0px 10px rgba(255,0, 0, 0.448);
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.448) !important;
 }
-.myRecForm.PAINDAING {
+.myRecForm.PENDING {
   border: 1px solid rgb(255, 255, 0);
-  box-shadow: inset 0px 0px 10px rgba(255, 255, 0, 0.448);
+  box-shadow: 0px 0px 15px rgba(255, 255, 0, 0.648) !important;
 }
 .myRecForm.VALID {
   border: 1px solid rgb(26, 255, 0);
-  box-shadow: inset 0px 0px 10px rgba(26, 255, 0, 0.448);
+  box-shadow: 0px 0px 15px rgba(26, 255, 0, 0.648) !important;
 }
