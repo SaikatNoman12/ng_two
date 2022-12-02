@@ -33,7 +33,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
         'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this), emailValidator()], this.asyncValidation),
         'two-step-verification': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this)], this.asyncValidation)
       }),
-      'course': new FormControl('select', [Validators.required]),
+      'course': new FormControl('not-select', [Validators.required]),
       'gender': new FormControl('Male', [Validators.required]),
       'skill': new FormArray([
         new FormControl(null, [Validators.required]),
@@ -74,7 +74,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
           'verify-email': 'fff@sdfsdf',
           'two-step-verification': '',
         },
-        'course': 'select',
+        'course': 'not-select',
         'gender': 'Male',
         'skill': [
           '',
@@ -232,7 +232,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
         'verify-email': '',
         'two-step-verification': '',
       },
-      'course': 'select',
+      'course': 'not-select',
       'gender': 'Male',
       'skill': [
         '',
