@@ -3,7 +3,7 @@ import { Directive } from '@angular/core';
 
 export function newEmailValidation(): ValidatorFn {
 
-  const regEx = /@([A-Z | a-z])/ig;
+  const regEx = /@/ig;
 
   return (control: AbstractControl): ValidationErrors | null => {
     const controlText = regEx.test(control.value);

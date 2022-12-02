@@ -229,6 +229,25 @@
         >
           Submit
         </button>
+
+        &nbsp;&nbsp;
+
+        <button
+          [disabled]="(!myReactiveForm.get('userDetails.username')?.valid && myReactiveForm.get('userDetails.username')?.errors?.['required']) 
+          && 
+          (!myReactiveForm.get('userDetails.email')?.valid && myReactiveForm.get('userDetails.email')?.errors?.['required'])
+          && 
+          (!myReactiveForm.get('userDetails.verify-email')?.valid && myReactiveForm.get('userDetails.verify-email')?.errors?.['required']) 
+          && 
+          (!myReactiveForm.get('userDetails.two-step-verification')?.valid && myReactiveForm.get('userDetails.two-step-verification')?.errors?.['required'])
+          &&
+          (!myReactiveForm.get('skill')?.valid)"
+          class="btn btn-warning"
+          type="button"
+          (click)="onResetForm()"
+        >
+          Reset
+        </button>
       </div>
     </form>
   </div>

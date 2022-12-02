@@ -2,7 +2,7 @@ import { ValidatorFn, AbstractControl, ValidationErrors, Validator, NG_VALIDATOR
 import { Directive } from '@angular/core';
 
 export function practiceValidateEmail(): ValidatorFn {
-  const reqEx = /@([a-z|A-Z])/ig;
+  const reqEx = /@/i;
 
   return (control: AbstractControl): ValidationErrors | null => {
 

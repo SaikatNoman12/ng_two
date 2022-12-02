@@ -65,6 +65,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
     });
 
 
+    // setValue():--
     setTimeout(() => {
       this.myReactiveForm.setValue({
         'userDetails': {
@@ -78,9 +79,20 @@ export class ReactiveFormPracticeComponent implements OnInit {
         'skill': [
           '',
         ],
-      })
+      });
     }, 2000);
 
+
+    // patchValue():--
+    setTimeout(() => {
+      this.myReactiveForm.patchValue({
+        'userDetails': {
+          'username': 'Rahim Khan Uddin',
+          'verify-email': 'fff@ffff',
+          'two-step-verification': '',
+        },
+      });
+    }, 10000);
 
   }
 
@@ -209,6 +221,23 @@ export class ReactiveFormPracticeComponent implements OnInit {
 
   get verifyEmail() {
     return this.myReactiveForm.get('userDetails.verify-email')!;
+  }
+
+
+  onResetForm() {
+    this.myReactiveForm.reset({
+      'userDetails': {
+        'username': '',
+        'email': '',
+        'verify-email': '',
+        'two-step-verification': '',
+      },
+      'course': 'select',
+      'gender': 'Male',
+      'skill': [
+        '',
+      ]
+    });
   }
 
   formDataSubmit(): void {
