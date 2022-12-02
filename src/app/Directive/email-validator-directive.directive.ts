@@ -23,7 +23,7 @@ export function emailValidator(): ValidatorFn {
 
 @Directive({
   selector: '[appEmailValidatorDirective]',
-   providers: [{
+  providers: [{
     provide: NG_VALIDATORS,
     useExisting: EmailValidatorDirectiveDirective,
     multi: true,

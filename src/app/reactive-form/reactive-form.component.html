@@ -59,6 +59,10 @@
             >Please enter your email!</span
           >
           <span
+            *ngIf="!myRecForm.get('userDetails.email')?.errors?.['required'] && myRecForm.get('userDetails.email')?.errors?.['emailValidatorMail']"
+            >Please enter your valid email!</span
+          >
+          <span
             *ngIf="myRecForm.get('userDetails.email')?.errors?.['email-valid']"
             >{{ myRecForm.get("userDetails.email")?.value }} is not allow</span
           >
@@ -76,20 +80,29 @@
           formControlName="verified-email"
           placeholder="Enter verified email"
         />
-        <small 
-        *ngIf="!myRecForm.get('userDetails.verified-email')?.valid && myRecForm.get('userDetails.verified-email')?.touched"
-        class="text-danger"> 
         <small
-          *ngIf="myRecForm.get('userDetails.verified-email')?.errors?.['required']"
-        >Please enter your email </small>
-
-
-        <small
-          *ngIf="myRecForm.get('userDetails.verified-email')?.errors?.['emailNotAllowed']"
+          *ngIf="
+            !myRecForm.get('userDetails.verified-email')?.valid &&
+            myRecForm.get('userDetails.verified-email')?.touched
+          "
+          class="text-danger"
         >
-          {{myRecForm.get('userDetails.verified-email')?.value}} is not allowed!
+          <small
+            *ngIf="myRecForm.get('userDetails.verified-email')?.errors?.['required']"
+            >Please enter your email
+          </small>
+          <small
+            *ngIf="!myRecForm.get('userDetails.verified-email')?.errors?.['required'] && myRecForm.get('userDetails.verified-email')?.errors?.['newEmailValidation']"
+            >Please enter your valid email
+          </small>
+
+          <small
+            *ngIf="myRecForm.get('userDetails.verified-email')?.errors?.['emailNotAllowed']"
+          >
+            {{ myRecForm.get("userDetails.verified-email")?.value }} is not
+            allowed!
+          </small>
         </small>
-      </small>
       </div>
     </div>
 

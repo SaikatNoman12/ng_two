@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { elementAt, Observable } from 'rxjs';
 import { ElementSchemaRegistry } from '@angular/compiler';
 import { emailValidator } from 'src/app/Directive/email-validator-directive.directive';
+import { practiceValidateEmail } from 'src/app/Directive/practice-reactive-form-email.directive';
 
 @Component({
   selector: 'app-reactive-form-practice',
@@ -28,7 +29,7 @@ export class ReactiveFormPracticeComponent implements OnInit {
     this.myReactiveForm = new FormGroup({
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.customValidations.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidate.bind(this)]),
+        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidate.bind(this), practiceValidateEmail()]),
         'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this), emailValidator()], this.asyncValidation)
       }),
       'course': new FormControl('select', [Validators.required]),

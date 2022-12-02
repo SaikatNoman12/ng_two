@@ -63,6 +63,10 @@
               >Please enter your email!</span
             >
             <span
+              *ngIf="!myReactiveForm.get('userDetails.email')?.errors?.['required'] && myReactiveForm.get('userDetails.email')?.errors?.['practiceValidate']"
+              >Please enter your valid email plzzzzzzzzzzzzzzzz!</span
+            >
+            <span
               *ngIf="myReactiveForm.get('userDetails.email')?.errors?.['emailNotValid']"
               >{{ myReactiveForm.get("userDetails.email")?.value }} is already
               taken!</span

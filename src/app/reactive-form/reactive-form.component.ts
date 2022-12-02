@@ -2,6 +2,8 @@ import { emailValidator } from 'src/app/Directive/email-validator-directive.dire
 import { Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, EmailValidator, Form, FormArray, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { emailValidatorMail } from '../Directive/email-validation.directive';
+import { newEmailValidation } from '../Directive/new-email-directive.directive';
 
 @Component({
   selector: 'app-reactive-form',
@@ -40,8 +42,8 @@ export class ReactiveFormComponent implements OnInit {
 
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.userNameValidate.bind(this)]),
-        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidateMethod.bind(this)]),
-        'verified-email': new FormControl(null, [Validators.required, Validators.email, emailValidator()], [this.asyncValidatorsRecForm])
+        'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidateMethod.bind(this), emailValidatorMail(),]),
+        'verified-email': new FormControl(null, [Validators.required, Validators.email, newEmailValidation()], [this.asyncValidatorsRecForm])
       }),
       'course': new FormControl('select', Validators.required),
       'gender': new FormControl('Male', Validators.required),
@@ -87,10 +89,10 @@ export class ReactiveFormComponent implements OnInit {
       this.myRecForm.patchValue({
         'userDetails': {
           'username': 'Rahim',
-          'verified-email':'kkl@com'
+          'verified-email': 'kkl@com'
         },
         'course': 'angular',
-        'skills':[
+        'skills': [
           'javaScript'
         ]
       })
@@ -116,7 +118,7 @@ export class ReactiveFormComponent implements OnInit {
 
     return response;
   }
- 
+
 
 
   userNameValidate(control: FormControl) {
@@ -134,7 +136,7 @@ export class ReactiveFormComponent implements OnInit {
   myFormSubmit() {
     console.log(this.myRecForm);
 
-    
+
     // use for reset:--
     /* 
     this.myRecForm.reset(); 
@@ -142,12 +144,12 @@ export class ReactiveFormComponent implements OnInit {
 
     // use for reset adn set value:--
     this.myRecForm.reset({
-      'userDetails':{
+      'userDetails': {
 
       },
 
-      'course':'select',
-      'gender':'Male'
+      'course': 'select',
+      'gender': 'Male'
     })
 
   }
@@ -167,7 +169,5 @@ export class ReactiveFormComponent implements OnInit {
     }
     return null;
   }
-
-
 
 }
