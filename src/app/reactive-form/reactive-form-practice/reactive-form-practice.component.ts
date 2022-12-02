@@ -30,7 +30,8 @@ export class ReactiveFormPracticeComponent implements OnInit {
       'userDetails': new FormGroup({
         'username': new FormControl(null, [Validators.required, this.customValidations.bind(this)]),
         'email': new FormControl(null, [Validators.required, Validators.email, this.emailValidate.bind(this), practiceValidateEmail()]),
-        'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this), emailValidator()], this.asyncValidation)
+        'verify-email': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this), emailValidator()], this.asyncValidation),
+        'two-step-verification': new FormControl(null, [Validators.email, Validators.required, this.emailValidate.bind(this)], this.asyncValidation)
       }),
       'course': new FormControl('select', [Validators.required]),
       'gender': new FormControl('Male', [Validators.required]),

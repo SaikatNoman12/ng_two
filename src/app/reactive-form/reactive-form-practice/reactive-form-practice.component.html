@@ -51,6 +51,7 @@
             placeholder="Enter email..."
             formControlName="email"
           />
+
           <small
             *ngIf="
               !myReactiveForm.get('userDetails.email')?.valid &&
@@ -106,6 +107,40 @@
               {{ myReactiveForm.get("userDetails.verify-email")?.value }} is
               already taken.
             </span>
+          </small>
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputPassword2" class="form-label"
+            >Two step verification:</label
+          >
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputPassword2"
+            placeholder="Enter email..."
+            formControlName="two-step-verification"
+          />
+          <small
+            *ngIf="myReactiveForm.get('userDetails.two-step-verification')?.errors?.['required'] && myReactiveForm.get('userDetails.two-step-verification')?.touched"
+            class="text-danger"
+          >
+            Please enter your email!</small
+          >
+          <small
+            *ngIf="
+              !myReactiveForm.get('userDetails.two-step-verification')?.valid &&
+              myReactiveForm.get('userDetails.two-step-verification')?.touched && !myReactiveForm.get('userDetails.two-step-verification')?.errors?.['required'] && !myReactiveForm.get('userDetails.two-step-verification')?.errors?.['emailNotValid']
+            "
+            class="text-danger"
+          >
+            Please enter your valid email!
+          </small>
+          <small
+            *ngIf="!myReactiveForm.get('userDetails.two-step-verification')?.valid && myReactiveForm.get('userDetails.two-step-verification')?.touched && myReactiveForm.get('userDetails.two-step-verification')?.errors?.['emailNotValid'] && !myReactiveForm.get('userDetails.two-step-verification')?.errors?.['required']"
+            class="text-danger"
+          >
+            This mail is already taken!
           </small>
         </div>
 
