@@ -104,6 +104,38 @@
           </small>
         </small>
       </div>
+
+      <div class="mb-3">
+        <label for="exampleInputPassword4" class="form-label"
+          >Two step verification email</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="exampleInputPassword4"
+          formControlName="two-step-verification"
+          placeholder="Enter verified email"
+        />
+
+        <small
+          class="text-danger"
+          *ngIf="!myRecForm.get('userDetails.two-step-verification')?.valid && myRecForm.get('userDetails.two-step-verification')?.touched && myRecForm.get('userDetails.two-step-verification')?.errors?.['required']"
+          >Please enter your email!</small
+        >
+        <small
+          class="text-danger"
+          *ngIf="!myRecForm.get('userDetails.two-step-verification')?.valid && myRecForm.get('userDetails.two-step-verification')?.touched && !myRecForm.get('userDetails.two-step-verification')?.errors?.['required'] && !myRecForm.get('userDetails.two-step-verification')?.errors?.['email-valid']"
+        >
+          Please enter your valid email!
+        </small>
+
+        <small
+          *ngIf="!myRecForm.get('userDetails.two-step-verification')?.valid && myRecForm.get('userDetails.two-step-verification')?.touched && myRecForm.get('userDetails.two-step-verification')?.errors?.['email-valid'] && !myRecForm.get('userDetails.two-step-verification')?.errors?.['required']"
+          class="text-danger"
+        >
+          {{myRecForm.get('userDetails.two-step-verification')?.value}} is already taken
+        </small>
+      </div>
     </div>
 
     <div class="selector">
